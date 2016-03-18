@@ -1,0 +1,55 @@
+AllCops:
+  Include:
+    - "**/Rakefile"
+    - "**/config.ru"
+  Exclude:
+    - "db/**/*"
+    - "config/**/*"
+    - "script/**/*"
+    - "frontend/**/*"
+    - "vendor/**/*"
+  RunRailsCops: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/Encoding:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Style/IfUnlessModifier:
+  MaxLineLength: 120
+
+Style/WhileUntilModifier:
+  MaxLineLength: 120
+
+Style/LambdaCall:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/ClassLength:
+  CountComments: false
+  Max: 300
+
+Metrics/ModuleLength:
+  CountComments: false
+  Max: 300
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 15
+
+Metrics/AbcSize:
+  Max: 25
+
+Style/AsciiComments:
+  Description: "Use only ascii symbols in comments."
+  StyleGuide: "https://github.com/bbatsov/ruby-style-guide#english-comments"
+  Enabled: false
