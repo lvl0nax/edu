@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318202413) do
+ActiveRecord::Schema.define(version: 20160318210029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,5 +48,50 @@ ActiveRecord::Schema.define(version: 20160318202413) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "name"
+    t.string   "site"
+    t.text     "description"
+    t.boolean  "moderated",       default: false
+    t.float    "price"
+    t.integer  "language"
+    t.integer  "provider_id"
+    t.integer  "subject_id"
+    t.integer  "direction_id"
+    t.string   "duration"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean  "certificate",     default: false
+    t.string   "seo_title"
+    t.string   "seo_keywords"
+    t.text     "seo_description"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  create_table "directions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "providers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "site"
+    t.text     "description"
+    t.boolean  "moderated"
+    t.string   "seo_title"
+    t.string   "seo_keywords"
+    t.text     "seo_description"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

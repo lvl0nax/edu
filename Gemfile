@@ -38,6 +38,7 @@ gem 'select2-rails'
 gem 'devise'
 gem 'devise-i18n'
 gem 'activeadmin', github: 'activeadmin'
+gem 'active_admin_theme'
 gem 'haml-rails'
 gem 'haml'
 
