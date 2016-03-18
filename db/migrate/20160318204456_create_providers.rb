@@ -4,7 +4,7 @@ class CreateProviders < ActiveRecord::Migration
       t.string :name
       t.string :site
       t.text :description
-      t.boolean :moderated
+      t.boolean :moderated, default: false
 
       t.string :seo_title
       t.string :seo_keywords

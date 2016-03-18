@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318210029) do
+ActiveRecord::Schema.define(version: 20160318214339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,26 +72,42 @@ ActiveRecord::Schema.define(version: 20160318210029) do
 
   create_table "directions", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "subject_id"
+    t.string   "seo_title"
+    t.string   "seo_keywords"
+    t.text     "seo_description"
   end
 
   create_table "providers", force: :cascade do |t|
     t.string   "name"
     t.string   "site"
     t.text     "description"
-    t.boolean  "moderated"
+    t.boolean  "moderated",       default: false
     t.string   "seo_title"
     t.string   "seo_keywords"
     t.text     "seo_description"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "seo_title"
+    t.string   "seo_keywords"
+    t.text     "seo_description"
   end
+
+  create_table "subjects_providers", force: :cascade do |t|
+    t.integer  "subject_id"
+    t.integer  "provider_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "subjects_providers", ["subject_id", "provider_id"], name: "index_subjects_providers_on_subject_id_and_provider_id", unique: true, using: :btree
 
 end
