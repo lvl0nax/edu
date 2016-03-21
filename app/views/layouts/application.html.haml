@@ -1,0 +1,75 @@
+!!!
+%html
+  %head
+    %title Edu
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .wrapper
+      %header.navbar.navbar-default.navbar-fixed-top.navbar-top
+        .container.container-fluid
+          .navbar-header
+            %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.navbar-brand{href: "index.html"}
+              %span.logo
+                %i.fa.fa-graduation-cap
+                Coursotheca
+          .navbar-collapse.collapse
+            %ul.nav.navbar-nav.navbar-right
+              %li.new-ads
+                %a.btn.btn-ads.btn-block{href: "account_create_post.html"}= I18n.t('labels.courses_list')
+              - if current_user
+                %li
+                  %a{href: "/profile"}= I18n.t('labels.to_profile')
+              - else
+                %li
+                  %a{href: "signup.html"}= I18n.t('labels.signup')
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                  %strong.caret>
+                  = I18n.t('labels.pages')
+                %ul.dropdown-menu
+                  %li
+                    %a{href: "/about"}= I18n.t('labels.about')
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                  %i.fa.fa-user
+                  = succeed "\u{a0}" do
+                    %strong.caret
+                .dropdown-menu.dropdown-login{style: "padding:15px;min-width:250px"}
+                  %form
+                    .form-group
+                      .input-group
+                        %span.input-group-addon.addon-login
+                          %i.fa.fa-user
+                        %input.form-control.input-login{placeholder:  I18n.t('labels.email'), required: "required", type: "text"}/
+                    .form-group
+                      .input-group
+                        %span.input-group-addon.addon-login
+                          %i.addon.fa.fa-lock
+                        %input.form-control.input-login{placeholder: I18n.t('labels.password'), required: "required", type: "password"}
+                    .form-group
+                      .checkbox
+                        %label.string.optional{for: "user_remember_me"}
+                          %input#user_remember_me{style: "", type: "checkbox"}/
+                          = I18n.t('labels.user_remember_me')
+                    %input.btn.btn-custom.btn-block{type: "submit", value: I18n.t('labels.sign_in')}/
+                    %a.btn-block.text-center{href: "forgot_password.html"}= I18n.t('labels.forgot_pass')
+      = yield
+      .footer
+        .container
+          %ul.pull-left.footer-menu
+            %li
+              %a{href: "/"}= I18n.t('labels.home')
+              %a{href: "/about"}= I18n.t('labels.about')
+              %a{href: "/contacts"}= I18n.t('labels.contacts')
+          %ul.pull-right.footer-menu
+            %li
+              ©
+              \#{Time.zone.now.year}
+              Coursotheca

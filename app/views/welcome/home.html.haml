@@ -1,1 +1,369 @@
-test
+%section.hero
+  .container.text-center
+    %h2.hero-title Find an Awesome Things Here
+    %p.hero-description.hidden-xs Find all things you need on DLapak. We give you a simple way.
+    .row.hero-search-box
+      %form
+        .col-md-4.col-sm-4.search-input
+          %input.form-control.input-lg.search-first{:placeholder => "I'm feeling lucky...", :type => "text"}/
+        .col-md-4.col-sm-4.search-input
+          %select.form-control.input-lg.search-second
+            %option{:selected => "selected"} All Location
+            %option New York
+            %option Washington
+            %option California
+        .col-md-4.col-sm-4.search-input
+          %button.btn.btn-custom.btn-block.btn-lg
+            %i.fa.fa-search
+%section.main
+  .container
+    .row
+      .col-md-8.col-sm-8
+        .row
+          .col-xs-4.col-sm-3
+            .shortcut
+              %a{:href => "category.html"}
+                %i.fa.fa-car.shortcut-icon.icon-blue
+              %a{:href => "category.html"}
+                %h3 Car
+              %span.total-items 234,567
+          .col-xs-4.col-sm-3
+            .shortcut
+              %a{:href => "category.html"}
+                %i.fa.fa-motorcycle.shortcut-icon.icon-green
+              %a{:href => "category.html"}
+                %h3 Motorcycle
+              %span.total-items 25,366
+          .col-xs-4.col-sm-3
+            .shortcut
+              %a{:href => "category.html"}
+                %i.fa.fa-home.shortcut-icon.icon-brown
+              %a{:href => "category.html"}
+                %h3 Property
+              %span.total-items 252,546
+          .col-xs-4.col-sm-3
+            .shortcut
+              %a{:href => "category.html"}
+                %i.fa.fa-female.shortcut-icon.icon-violet
+              %a{:href => "category.html"}
+                %h3 Fashion
+              %span.total-items 52,546
+          .col-xs-4.col-sm-3
+            .shortcut
+              %a{:href => "category.html"}
+                %i.fa.fa-mobile-phone.shortcut-icon.icon-dark-blue
+              %a{:href => "category.html"}
+                %h3 Gadget
+              %span.total-items 215,546
+          .col-xs-4.col-sm-3
+            .shortcut
+              %a{:href => "category.html"}
+                %i.fa.fa-soccer-ball-o.shortcut-icon.icon-orange
+              %a{:href => "category.html"}
+                %h3 Sport
+              %span.total-items 415,546
+          .col-xs-4.col-sm-3
+            .shortcut
+              %a{:href => "category.html"}
+                %i.fa.fa-gears.shortcut-icon.icon-light-blue
+              %a{:href => "category.html"}
+                %h3 Industry
+              %span.total-items 15,546
+          .col-xs-4.col-sm-3
+            .shortcut
+              %a{:href => "category.html"}
+                %i.fa.fa-wrench.shortcut-icon.icon-light-green
+              %a{:href => "category.html"}
+                %h3 Job
+              %span.total-items 152,546
+        .row
+          .col-md-12
+            .section-header
+              %h2 Featured
+            #featured-products.owl-carousel.owl-carousel-featured.owl-theme{:style => "opacity: 1; display: block;"}
+              .owl-wrapper-outer
+                .owl-wrapper
+                  .owl-item{:style => "width: 250px;"}
+                    .item
+                      .item-ads-grid
+                        .item-badge-grid.featured-ads
+                          %a{:href => "#"} Featured Ads
+                        .item-img-grid
+                          %img.img-responsive.img-center{:alt => "", :src => "assets/img/products/product-1.jpg"}/
+                        .item-title
+                          %a{:href => "detail.html"}
+                            %h4 Lenovo A326 Black 4GB RAM
+                        .item-meta
+                          %ul
+                            %li.item-date
+                              %i.fa.fa-clock-o
+                              Today 10.35 am
+                            %li.item-cat
+                              %i.fa.fa-bars
+                              %a{:href => "category.html"} Electronics
+                              ,
+                              %a{:href => "category.html"} Smartphone
+                            %li.item-location
+                              %a{:href => "category.html"}
+                                %i.fa.fa-map-marker
+                                Manchester
+                            %li.item-type
+                              %i.fa.fa-bookmark
+                              New
+                        .product-footer
+                          .item-price-grid.pull-left
+                            %h3 $ 100
+                            %span Negotiable
+                          .item-action-grid.pull-right
+                            %ul
+                              %li
+                                %a.btn.btn-default.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Save Favorite"}
+                                  %i.fa.fa-heart
+                              %li
+                                %a.btn.btn-success.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "detail.html", :title => "Show Details"}
+                                  %i.fa.fa-eye
+                  .owl-item{:style => "width: 250px;"}
+                    .item
+                      .item-ads-grid
+                        .item-badge-grid.premium-ads
+                          %a{:href => "#"} Featured Ads
+                        .item-img-grid
+                          %img.img-responsive.img-center{:alt => "", :src => "assets/img/products/product-6.jpg"}/
+                        .item-title
+                          %a{:href => "detail.html"}
+                            %h4 Samsung Tab 3 V 116
+                        .item-meta
+                          %ul
+                            %li.item-date
+                              %i.fa.fa-clock-o
+                              Today 10.35 am
+                            %li.item-cat
+                              %i.fa.fa-bars
+                              %a{:href => "category.html"} Electronics
+                              ,
+                              %a{:href => "category.html"} Smartphone
+                            %li.item-location
+                              %a{:href => "category.html"}
+                                %i.fa.fa-map-marker
+                                Manchester
+                            %li.item-type
+                              %i.fa.fa-bookmark
+                              New
+                        .product-footer
+                          .item-price-grid.pull-left
+                            %h3 $ 100
+                            %span Negotiable
+                          .item-action-grid.pull-right
+                            %ul
+                              %li
+                                %a.btn.btn-default.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Save Favorite"}
+                                  %i.fa.fa-heart
+                              %li
+                                %a.btn.btn-success.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "detail.html", :title => "Show Details"}
+                                  %i.fa.fa-eye
+                  .owl-item{:style => "width: 250px;"}
+                    .item
+                      .item-ads-grid.highlight-ads
+                        .item-img-grid
+                          %img.img-responsive.img-center{:alt => "", :src => "assets/img/products/product-7.jpg"}/
+                        .item-title
+                          %a{:href => "detail.html"}
+                            %h4 Sony Experia Z2 LTE
+                        .item-meta
+                          %ul
+                            %li.item-date
+                              %i.fa.fa-clock-o
+                              Today 10.35 am
+                            %li.item-cat
+                              %i.fa.fa-bars
+                              %a{:href => "category.html"} Electronics
+                              ,
+                              %a{:href => "category.html"} Smartphone
+                            %li.item-location
+                              %a{:href => "category.html"}
+                                %i.fa.fa-map-marker
+                                Manchester
+                            %li.item-type
+                              %i.fa.fa-bookmark
+                              New
+                        .product-footer
+                          .item-price-grid.pull-left
+                            %h3 $ 100
+                            %span Negotiable
+                          .item-action-grid.pull-right
+                            %ul
+                              %li
+                                %a.btn.btn-default.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Save Favorite"}
+                                  %i.fa.fa-heart
+                              %li
+                                %a.btn.btn-success.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "detail.html", :title => "Show Details"}
+                                  %i.fa.fa-eye
+                  .owl-item{:style => "width: 250px;"}
+                    .item
+                      .item-ads-grid
+                        .item-badge-grid.hot-ads
+                          %a{:href => "#"} Featured Ads
+                        .item-img-grid
+                          %img.img-responsive.img-center{:alt => "", :src => "assets/img/products/product-1.jpg"}/
+                        .item-title
+                          %a{:href => "detail.html"}
+                            %h4 Lenovo A326 Black 4GB RAM
+                        .item-meta
+                          %ul
+                            %li.item-date
+                              %i.fa.fa-clock-o
+                              Today 10.35 am
+                            %li.item-cat
+                              %i.fa.fa-bars
+                              %a{:href => "category.html"} Electronics
+                              ,
+                              %a{:href => "category.html"} Smartphone
+                            %li.item-location
+                              %a{:href => "category.html"}
+                                %i.fa.fa-map-marker
+                                Manchester
+                            %li.item-type
+                              %i.fa.fa-bookmark
+                              New
+                        .product-footer
+                          .item-price-grid.pull-left
+                            %h3 $ 100
+                            %span Negotiable
+                          .item-action-grid.pull-right
+                            %ul
+                              %li
+                                %a.btn.btn-default.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Save Favorite"}
+                                  %i.fa.fa-heart
+                              %li
+                                %a.btn.btn-success.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "detail.html", :title => "Show Details"}
+                                  %i.fa.fa-eye
+                  .owl-item{:style => "width: 250px;"}
+                    .item
+                      .item-ads-grid
+                        .item-badge-grid.featured-ads
+                          %a{:href => "#"} Featured Ads
+                        .item-img-grid
+                          %img.img-responsive.img-center{:alt => "", :src => "assets/img/products/product-1.jpg"}/
+                        .item-title
+                          %a{:href => "detail.html"}
+                            %h4 Lenovo A326 Black 4GB RAM
+                        .item-meta
+                          %ul
+                            %li.item-date
+                              %i.fa.fa-clock-o
+                              Today 10.35 am
+                            %li.item-cat
+                              %i.fa.fa-bars
+                              %a{:href => "category.html"} Electronics
+                              ,
+                              %a{:href => "category.html"} Smartphone
+                            %li.item-location
+                              %a{:href => "category.html"}
+                                %i.fa.fa-map-marker
+                                Manchester
+                            %li.item-type
+                              %i.fa.fa-bookmark
+                              New
+                        .product-footer
+                          .item-price-grid.pull-left
+                            %h3 $ 100
+                            %span Negotiable
+                          .item-action-grid.pull-right
+                            %ul
+                              %li
+                                %a.btn.btn-default.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Save Favorite"}
+                                  %i.fa.fa-heart
+                              %li
+                                %a.btn.btn-success.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "detail.html", :title => "Show Details"}
+                                  %i.fa.fa-eye
+              .owl-controls.clickable
+                .owl-pagination
+                  .owl-page.active
+                    %span
+                  .owl-page
+                    %span
+      .col-md-4.col-sm-4
+        .widget
+          .widget-header
+            %h3 Quick Signup
+          .widget-body
+            %form
+              .form-group
+                %input.form-control.input-lg{:placeholder => "Name", :type => "text"}/
+              .form-group
+                %input.form-control.input-lg{:placeholder => "Email", :type => "text"}/
+              .form-group
+                %input.form-control.input-lg{:placeholder => "Password", :type => "password"}/
+              .form-group
+                .checkbox
+                  %label.string.optional{:for => "terms"}
+                    %input#terms{:style => "", :type => "checkbox"}/
+                    %a{:href => "#"} I Agree with Term and Conditions
+              .form-group
+                %button.btn.btn-block.btn-custom Sign Up
+        .widget
+          .widget-header
+            %h3 Trends
+          .widget-body
+            %ul.trends
+              %li
+                %a{:href => "#"}
+                  Smartphone  
+                  %span.item-numbers (2,342)
+              %li
+                %a{:href => "#"}
+                  Watch & Jewelry  
+                  %span.item-numbers (2,342)
+              %li
+                %a{:href => "#"}
+                  Clothes  
+                  %span.item-numbers (2,342)
+              %li
+                %a{:href => "#"}
+                  Shoes  
+                  %span.item-numbers (2,342)
+              %li
+                %a{:href => "#"}
+                  Music  
+                  %span.item-numbers (2,342)
+              %li
+                %a{:href => "#"}
+                  Furniture  
+                  %span.item-numbers (2,342)
+              %li
+                %a{:href => "#"}
+                  Photography  
+                  %span.item-numbers (242)
+              %li
+                %a{:href => "#"}
+                  Web Development  
+                  %span.item-numbers (2,342)
+        .banner-widget
+          %img.img-responsive{:alt => "banner", :src => "http://placehold.it/600x275"}/
+.counter
+  .container
+    .row
+      .col-md-3
+        .item-counter
+          %span.item-icon
+            %i.fa.fa-database
+          .item-count{"data-from" => "0", "data-refresh-interval" => "100", "data-speed" => "3000", "data-to" => "7803"} 7803
+          %span.item-info Items
+      .col-md-3
+        .item-counter
+          %span.item-icon
+            %i.fa.fa-user-plus
+          .item-count{"data-from" => "0", "data-refresh-interval" => "50", "data-speed" => "5000", "data-to" => "427"} 427
+          %span.item-info Sellers
+      .col-md-3
+        .item-counter
+          %span.item-icon
+            %i.fa.fa-map-marker
+          .item-count{"data-from" => "0", "data-refresh-interval" => "80", "data-speed" => "5000", "data-to" => "639"} 639
+          %span.item-info Locations
+      .col-md-3
+        .item-counter
+          %span.item-icon
+            %i.fa.fa-users
+          .item-count{"data-from" => "0", "data-refresh-interval" => "80", "data-speed" => "5000", "data-to" => "1548"} 1548
+          %span.item-info Members
