@@ -4,4 +4,3 @@ class ChangeColumnForSubjects < ActiveRecord::Migration
     add_column :subjects, :name_en, :string
   end
 end
-

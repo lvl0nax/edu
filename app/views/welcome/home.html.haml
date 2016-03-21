@@ -5,10 +5,10 @@
     .row.hero-search-box
       %form
         .col-md-4.col-sm-4.search-input
-          %input.form-control.input-lg.search-first{:placeholder => "I'm feeling lucky...", :type => "text"}/
+          %input.form-control.input-lg.search-first{placeholder: "I'm feeling lucky...", type: 'text'}/
         .col-md-4.col-sm-4.search-input
           %select.form-control.input-lg.search-second
-            %option{:selected => "selected"} All Location
+            %option{selected: 'selected'} All Location
             %option New York
             %option Washington
             %option California
@@ -23,9 +23,9 @@
           - @all_subjects.each do |subject|
             .col-xs-4.col-sm-3
               .shortcut
-                %a{href: "/"}
+                %a{href: '/'}
                   = image_tag subject.icon_url(:small)
-                %a{href: "/"}
+                %a{href: '/'}
                   %h3= subject.name
                 %span.total-items 26
 
@@ -33,18 +33,18 @@
           .col-md-12
             .section-header
               %h2 Featured
-            #featured-products.owl-carousel.owl-carousel-featured.owl-theme{:style => "opacity: 1; display: block;"}
+            #featured-products.owl-carousel.owl-carousel-featured.owl-theme{style: 'opacity: 1; display: block;'}
               .owl-wrapper-outer
                 .owl-wrapper
-                  .owl-item{:style => "width: 250px;"}
+                  .owl-item{style: 'width: 250px;'}
                     .item
                       .item-ads-grid
                         .item-badge-grid.featured-ads
-                          %a{:href => "#"} Featured Ads
+                          %a{href: '#'} Featured Ads
                         .item-img-grid
-                          %img.img-responsive.img-center{:alt => "", :src => "assets/img/products/product-1.jpg"}/
+                          %img.img-responsive.img-center{alt: '', src: 'assets/img/products/product-1.jpg'}/
                         .item-title
-                          %a{:href => "detail.html"}
+                          %a{href: '/course/1'}
                             %h4 Lenovo A326 Black 4GB RAM
                         .item-meta
                           %ul
@@ -53,11 +53,11 @@
                               Today 10.35 am
                             %li.item-cat
                               %i.fa.fa-bars
-                              %a{:href => "category.html"} Electronics
+                              %a{href: '/course/1'} Electronics
                               ,
-                              %a{:href => "category.html"} Smartphone
+                              %a{href: '/course/1'} Smartphone
                             %li.item-location
-                              %a{:href => "category.html"}
+                              %a{href: '/course/1'}
                                 %i.fa.fa-map-marker
                                 Manchester
                             %li.item-type
@@ -70,20 +70,20 @@
                           .item-action-grid.pull-right
                             %ul
                               %li
-                                %a.btn.btn-default.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Save Favorite"}
+                                %a.btn.btn-default.btn-sm{'data-placement' => 'top', 'data-toggle' => 'tooltip', href: '#', title: 'Save Favorite'}
                                   %i.fa.fa-heart
                               %li
-                                %a.btn.btn-success.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "detail.html", :title => "Show Details"}
+                                %a.btn.btn-success.btn-sm{'data-placement' => 'top', 'data-toggle' => 'tooltip', href: '/', title: 'Show Details'}
                                   %i.fa.fa-eye
-                  .owl-item{:style => "width: 250px;"}
+                  .owl-item{style: 'width: 250px;'}
                     .item
                       .item-ads-grid
                         .item-badge-grid.premium-ads
-                          %a{:href => "#"} Featured Ads
+                          %a{href: '#'} Featured Ads
                         .item-img-grid
-                          %img.img-responsive.img-center{:alt => "", :src => "assets/img/products/product-6.jpg"}/
+                          %img.img-responsive.img-center{alt: '', src: 'assets/img/products/product-6.jpg'}/
                         .item-title
-                          %a{:href => "detail.html"}
+                          %a{href: 'detail.html'}
                             %h4 Samsung Tab 3 V 116
                         .item-meta
                           %ul
@@ -92,11 +92,11 @@
                               Today 10.35 am
                             %li.item-cat
                               %i.fa.fa-bars
-                              %a{:href => "category.html"} Electronics
+                              %a{href: '/course/1'} Electronics
                               ,
-                              %a{:href => "category.html"} Smartphone
+                              %a{href: '/course/1'} Smartphone
                             %li.item-location
-                              %a{:href => "category.html"}
+                              %a{href: '/course/1'}
                                 %i.fa.fa-map-marker
                                 Manchester
                             %li.item-type
@@ -109,125 +109,10 @@
                           .item-action-grid.pull-right
                             %ul
                               %li
-                                %a.btn.btn-default.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Save Favorite"}
+                                %a.btn.btn-default.btn-sm{'data-placement' => 'top', 'data-toggle' => 'tooltip', href: '#', title: 'Save Favorite'}
                                   %i.fa.fa-heart
                               %li
-                                %a.btn.btn-success.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "detail.html", :title => "Show Details"}
-                                  %i.fa.fa-eye
-                  .owl-item{:style => "width: 250px;"}
-                    .item
-                      .item-ads-grid.highlight-ads
-                        .item-img-grid
-                          %img.img-responsive.img-center{:alt => "", :src => "assets/img/products/product-7.jpg"}/
-                        .item-title
-                          %a{:href => "detail.html"}
-                            %h4 Sony Experia Z2 LTE
-                        .item-meta
-                          %ul
-                            %li.item-date
-                              %i.fa.fa-clock-o
-                              Today 10.35 am
-                            %li.item-cat
-                              %i.fa.fa-bars
-                              %a{:href => "category.html"} Electronics
-                              ,
-                              %a{:href => "category.html"} Smartphone
-                            %li.item-location
-                              %a{:href => "category.html"}
-                                %i.fa.fa-map-marker
-                                Manchester
-                            %li.item-type
-                              %i.fa.fa-bookmark
-                              New
-                        .product-footer
-                          .item-price-grid.pull-left
-                            %h3 $ 100
-                            %span Negotiable
-                          .item-action-grid.pull-right
-                            %ul
-                              %li
-                                %a.btn.btn-default.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Save Favorite"}
-                                  %i.fa.fa-heart
-                              %li
-                                %a.btn.btn-success.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "detail.html", :title => "Show Details"}
-                                  %i.fa.fa-eye
-                  .owl-item{:style => "width: 250px;"}
-                    .item
-                      .item-ads-grid
-                        .item-badge-grid.hot-ads
-                          %a{:href => "#"} Featured Ads
-                        .item-img-grid
-                          %img.img-responsive.img-center{:alt => "", :src => "assets/img/products/product-1.jpg"}/
-                        .item-title
-                          %a{:href => "detail.html"}
-                            %h4 Lenovo A326 Black 4GB RAM
-                        .item-meta
-                          %ul
-                            %li.item-date
-                              %i.fa.fa-clock-o
-                              Today 10.35 am
-                            %li.item-cat
-                              %i.fa.fa-bars
-                              %a{:href => "category.html"} Electronics
-                              ,
-                              %a{:href => "category.html"} Smartphone
-                            %li.item-location
-                              %a{:href => "category.html"}
-                                %i.fa.fa-map-marker
-                                Manchester
-                            %li.item-type
-                              %i.fa.fa-bookmark
-                              New
-                        .product-footer
-                          .item-price-grid.pull-left
-                            %h3 $ 100
-                            %span Negotiable
-                          .item-action-grid.pull-right
-                            %ul
-                              %li
-                                %a.btn.btn-default.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Save Favorite"}
-                                  %i.fa.fa-heart
-                              %li
-                                %a.btn.btn-success.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "detail.html", :title => "Show Details"}
-                                  %i.fa.fa-eye
-                  .owl-item{:style => "width: 250px;"}
-                    .item
-                      .item-ads-grid
-                        .item-badge-grid.featured-ads
-                          %a{:href => "#"} Featured Ads
-                        .item-img-grid
-                          %img.img-responsive.img-center{:alt => "", :src => "assets/img/products/product-1.jpg"}/
-                        .item-title
-                          %a{:href => "detail.html"}
-                            %h4 Lenovo A326 Black 4GB RAM
-                        .item-meta
-                          %ul
-                            %li.item-date
-                              %i.fa.fa-clock-o
-                              Today 10.35 am
-                            %li.item-cat
-                              %i.fa.fa-bars
-                              %a{:href => "category.html"} Electronics
-                              ,
-                              %a{:href => "category.html"} Smartphone
-                            %li.item-location
-                              %a{:href => "category.html"}
-                                %i.fa.fa-map-marker
-                                Manchester
-                            %li.item-type
-                              %i.fa.fa-bookmark
-                              New
-                        .product-footer
-                          .item-price-grid.pull-left
-                            %h3 $ 100
-                            %span Negotiable
-                          .item-action-grid.pull-right
-                            %ul
-                              %li
-                                %a.btn.btn-default.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Save Favorite"}
-                                  %i.fa.fa-heart
-                              %li
-                                %a.btn.btn-success.btn-sm{"data-placement" => "top", "data-toggle" => "tooltip", :href => "detail.html", :title => "Show Details"}
+                                %a.btn.btn-success.btn-sm{'data-placement' => 'top', 'data-toggle' => 'tooltip', href: 'detail.html', title: 'Show Details'}
                                   %i.fa.fa-eye
               .owl-controls.clickable
                 .owl-pagination
@@ -242,16 +127,16 @@
           .widget-body
             %form
               .form-group
-                %input.form-control.input-lg{:placeholder => "Name", :type => "text"}/
+                %input.form-control.input-lg{placeholder: 'Name', type: 'text'}/
               .form-group
-                %input.form-control.input-lg{:placeholder => "Email", :type => "text"}/
+                %input.form-control.input-lg{placeholder: 'Email', type: 'text'}/
               .form-group
-                %input.form-control.input-lg{:placeholder => "Password", :type => "password"}/
+                %input.form-control.input-lg{placeholder: 'Password', type: 'password'}/
               .form-group
                 .checkbox
-                  %label.string.optional{:for => "terms"}
-                    %input#terms{:style => "", :type => "checkbox"}/
-                    %a{:href => "#"} I Agree with Term and Conditions
+                  %label.string.optional{for: 'terms'}
+                    %input#terms{style: '', type: 'checkbox'}/
+                    %a{href: '#'} I Agree with Term and Conditions
               .form-group
                 %button.btn.btn-block.btn-custom Sign Up
         .widget
@@ -260,39 +145,39 @@
           .widget-body
             %ul.trends
               %li
-                %a{:href => "#"}
+                %a{href: '#'}
                   Smartphone  
                   %span.item-numbers (2,342)
               %li
-                %a{:href => "#"}
+                %a{href: '#'}
                   Watch & Jewelry  
                   %span.item-numbers (2,342)
               %li
-                %a{:href => "#"}
+                %a{href: '#'}
                   Clothes  
                   %span.item-numbers (2,342)
               %li
-                %a{:href => "#"}
+                %a{href: '#'}
                   Shoes  
                   %span.item-numbers (2,342)
               %li
-                %a{:href => "#"}
+                %a{href: '#'}
                   Music  
                   %span.item-numbers (2,342)
               %li
-                %a{:href => "#"}
+                %a{href: '#'}
                   Furniture  
                   %span.item-numbers (2,342)
               %li
-                %a{:href => "#"}
+                %a{href: '#'}
                   Photography  
                   %span.item-numbers (242)
               %li
-                %a{:href => "#"}
+                %a{href: '#'}
                   Web Development  
                   %span.item-numbers (2,342)
         .banner-widget
-          %img.img-responsive{:alt => "banner", :src => "http://placehold.it/600x275"}/
+          %img.img-responsive{alt: 'banner', src: 'http://placehold.it/600x275'}/
 .counter
   .container
     .row
@@ -300,23 +185,23 @@
         .item-counter
           %span.item-icon
             %i.fa.fa-database
-          .item-count{"data-from" => "0", "data-refresh-interval" => "100", "data-speed" => "3000", "data-to" => "7803"} 7803
+          .item-count{'data-from' => '0', 'data-refresh-interval' => '100', 'data-speed' => '3000', 'data-to' => '7803'} 7803
           %span.item-info Items
       .col-md-3
         .item-counter
           %span.item-icon
             %i.fa.fa-user-plus
-          .item-count{"data-from" => "0", "data-refresh-interval" => "50", "data-speed" => "5000", "data-to" => "427"} 427
+          .item-count{'data-from' => '0', 'data-refresh-interval' => '50', 'data-speed' => '5000', 'data-to' => '427'} 427
           %span.item-info Sellers
       .col-md-3
         .item-counter
           %span.item-icon
             %i.fa.fa-map-marker
-          .item-count{"data-from" => "0", "data-refresh-interval" => "80", "data-speed" => "5000", "data-to" => "639"} 639
+          .item-count{'data-from' => '0', 'data-refresh-interval' => '80', 'data-speed' => '5000', 'data-to' => '639'} 639
           %span.item-info Locations
       .col-md-3
         .item-counter
           %span.item-icon
             %i.fa.fa-users
-          .item-count{"data-from" => "0", "data-refresh-interval" => "80", "data-speed" => "5000", "data-to" => "1548"} 1548
+          .item-count{'data-from' => '0', 'data-refresh-interval' => '80', 'data-speed' => '5000', 'data-to' => '1548'} 1548
           %span.item-info Members

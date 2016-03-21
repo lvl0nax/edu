@@ -43,6 +43,7 @@ gem 'haml-rails'
 gem 'haml'
 
 gem "twitter-bootstrap-rails"
+gem 'simple_form'
 
 gem "dotenv"
 

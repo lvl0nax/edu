@@ -1,6 +1,6 @@
 ru:
   hints:
-    hint: example
+    hint: подсказка
 
   labels:
     user_remember_me: Запомнить меня

@@ -4,7 +4,7 @@
 ru:
   breadcrumbs:
     application:
-      root: "Index"
+      root: "Домашняя"
     pages:
       pages: "Страницы"
   helpers:

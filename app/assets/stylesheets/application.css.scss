@@ -284,6 +284,8 @@ a:hover{
   font-size: 16px;
   margin-top: 10px;
   font-weight: 700;
+  display: block;
+  height: 30px;
 }
 
 .total-items{
@@ -565,12 +567,6 @@ h2.product-title{
 
 .actions-table li{
   margin-bottom: 3px;
-}
-
-.account-header{
-  background: url("../img/background/hero.jpg") no-repeat center center / cover  rgba(0, 0, 0, 1);
-  padding: 30px 0 20px;
-  margin-bottom: 20px;
 }
 
 .profile_summary{
