@@ -15,3 +15,9 @@ ru:
     forgot_pass: "Забыли пароль?"
     sign_in: Войти
     courses_list: Курсы
+
+  time:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%b %d"
+      long: "%d/%m/%Y"

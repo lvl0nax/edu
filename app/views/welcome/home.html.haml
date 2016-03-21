@@ -20,62 +20,15 @@
     .row
       .col-md-8.col-sm-8
         .row
-          .col-xs-4.col-sm-3
-            .shortcut
-              %a{:href => "category.html"}
-                %i.fa.fa-car.shortcut-icon.icon-blue
-              %a{:href => "category.html"}
-                %h3 Car
-              %span.total-items 234,567
-          .col-xs-4.col-sm-3
-            .shortcut
-              %a{:href => "category.html"}
-                %i.fa.fa-motorcycle.shortcut-icon.icon-green
-              %a{:href => "category.html"}
-                %h3 Motorcycle
-              %span.total-items 25,366
-          .col-xs-4.col-sm-3
-            .shortcut
-              %a{:href => "category.html"}
-                %i.fa.fa-home.shortcut-icon.icon-brown
-              %a{:href => "category.html"}
-                %h3 Property
-              %span.total-items 252,546
-          .col-xs-4.col-sm-3
-            .shortcut
-              %a{:href => "category.html"}
-                %i.fa.fa-female.shortcut-icon.icon-violet
-              %a{:href => "category.html"}
-                %h3 Fashion
-              %span.total-items 52,546
-          .col-xs-4.col-sm-3
-            .shortcut
-              %a{:href => "category.html"}
-                %i.fa.fa-mobile-phone.shortcut-icon.icon-dark-blue
-              %a{:href => "category.html"}
-                %h3 Gadget
-              %span.total-items 215,546
-          .col-xs-4.col-sm-3
-            .shortcut
-              %a{:href => "category.html"}
-                %i.fa.fa-soccer-ball-o.shortcut-icon.icon-orange
-              %a{:href => "category.html"}
-                %h3 Sport
-              %span.total-items 415,546
-          .col-xs-4.col-sm-3
-            .shortcut
-              %a{:href => "category.html"}
-                %i.fa.fa-gears.shortcut-icon.icon-light-blue
-              %a{:href => "category.html"}
-                %h3 Industry
-              %span.total-items 15,546
-          .col-xs-4.col-sm-3
-            .shortcut
-              %a{:href => "category.html"}
-                %i.fa.fa-wrench.shortcut-icon.icon-light-green
-              %a{:href => "category.html"}
-                %h3 Job
-              %span.total-items 152,546
+          - @all_subjects.each do |subject|
+            .col-xs-4.col-sm-3
+              .shortcut
+                %a{href: "/"}
+                  = image_tag subject.icon_url(:small)
+                %a{href: "/"}
+                  %h3= subject.name
+                %span.total-items 26
+
         .row
           .col-md-12
             .section-header
