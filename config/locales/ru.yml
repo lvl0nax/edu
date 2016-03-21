@@ -1,0 +1,23 @@
+ru:
+  hints:
+    hint: подсказка
+
+  labels:
+    user_remember_me: Запомнить меня
+    password: Пароль
+    email: Email
+    signup: "Зарегистрироваться"
+    pages: "Страницы"
+    to_profile: "Профиль"
+    home: "Домой"
+    about: "О нас"
+    contacts: "Контакты"
+    forgot_pass: "Забыли пароль?"
+    sign_in: Войти
+    courses_list: Курсы
+
+  time:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%b %d"
+      long: "%d/%m/%Y"
