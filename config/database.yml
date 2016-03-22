@@ -7,5 +7,5 @@ default: &default
 development:
   <<: *default
   database: edu_dev
-  username: postgres
-  password: postgres
+  username: andrey
+  password: 3
