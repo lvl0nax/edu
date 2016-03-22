@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.3.0"
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
@@ -42,10 +42,10 @@ gem 'active_admin_theme'
 gem 'haml-rails'
 gem 'haml'
 
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'
 gem 'simple_form'
 
-gem "dotenv"
+gem 'dotenv'
 
 gem 'annotate', github: 'ctran/annotate_models'
 
