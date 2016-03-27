@@ -1,0 +1,23 @@
+.page_wrapper.sign_up_form
+  %h2= t("devise.sign_up")
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = f.error_notification
+    .form-group
+      .input-group
+        %span.input-group-addon.addon-login
+          %i.fa.fa-user
+        %input.form-control.input-login{placeholder:  I18n.t('labels.email'), required: 'required', type: 'text', name: 'user[email]', autofocus: true}
+    .form-group
+      .input-group
+        %span.input-group-addon.addon-login
+          %i.addon.fa.fa-lock
+        %input.form-control.input-login{placeholder: "#{t('labels.password')}(#{t('devise.min_length_hint', count: @minimum_password_length)})", required: 'required', type: 'password', name: 'user[password]'}
+    .form-group
+      .input-group
+        %span.input-group-addon.addon-login
+          %i.addon.fa.fa-lock
+        %input.form-control.input-login{placeholder: I18n.t('labels.password_confirmation'), required: 'required', type: 'password', name: 'user[password_confirmation]'}
+    %input.btn.btn-custom.btn-block{type: 'submit', value: I18n.t('labels.signup')}
+  %br
+  = render "devise/shared/links"
+

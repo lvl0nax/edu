@@ -203,10 +203,11 @@ a:hover{
 
 /*==========Main & Widget=================*/
 .wrapper{
-  margin-top:70px !important;
+  margin-top: 81px !important;
+  margin-bottom: 81px !important;
 }
 .main{
-  padding:30px 0;
+  padding: 30px 0;
   min-height: 460px;
 }
 .widget, .post, .box-content{
@@ -822,7 +823,7 @@ header{
 .footer {
   background: #fff;
   border-top: solid 1px #ddd;
-  padding: 30px 0;
+  padding: 20px 0;
   font-size: 12px;
   color: #4e575d;
   letter-spacing: 0.5px;
@@ -865,3 +866,16 @@ header{
     padding: 0;
   }
 }
+
+
+/*==============pages==================*/
+.sign_in_form{
+  max-width: 350px;
+  margin: 130px auto 30px;
+}
+.sign_up_form{
+  max-width: 350px;
+  margin: 130px auto 30px;
+}
+
+/*==============pages==================*/

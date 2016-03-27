@@ -18,7 +18,7 @@
             %a.navbar-brand{href: '/'}
               %span.logo
                 %i.fa.fa-graduation-cap
-                Coursotheca
+                Coursetheca
           .navbar-collapse.collapse
             %ul.nav.navbar-nav.navbar-right
               %li.new-ads
@@ -42,12 +42,36 @@
                   = succeed "\u{a0}" do
                     %strong.caret
                 .dropdown-menu.dropdown-login{style: 'padding:15px;min-width:250px'}
+                  = simple_form_for(:user, url: session_path(:user)) do |f|
+                    .form-group
+                      .input-group
+                        %span.input-group-addon.addon-login
+                          %i.fa.fa-user
+                        %input.form-control.input-login{placeholder:  I18n.t('labels.email'), required: 'required', type: 'text', name: 'user[email]'}
+                    .form-group
+                      .input-group
+                        %span.input-group-addon.addon-login
+                          %i.addon.fa.fa-lock
+                        %input.form-control.input-login{placeholder: I18n.t('labels.password'), required: 'required', type: 'password', name: 'user[password]'}
+                    .form-group
+                      .checkbox
+                        %label.string.optional{for: 'user_remember_me'}
+                          %input#user_remember_me{style: '', type: 'checkbox', name: 'user[remember_me]'}
+                          = I18n.t('labels.user_remember_me')
+                    %input.btn.btn-custom.btn-block{type: 'submit', value: I18n.t('labels.sign_in')}
+                    %a.btn-block.text-center{href: '/users/forgot_password'}= I18n.t('labels.forgot_pass')
+              %li.dropdown
+                %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
+                  %i.fa.fa-user
+                  = succeed "\u{a0}" do
+                    %strong.caret
+                .dropdown-menu.dropdown-login{style: 'padding:15px;min-width:250px'}
                   %form
                     .form-group
                       .input-group
                         %span.input-group-addon.addon-login
                           %i.fa.fa-user
-                        %input.form-control.input-login{placeholder:  I18n.t('labels.email'), required: 'required', type: 'text'}/
+                        %input.form-control.input-login{placeholder:  I18n.t('labels.email'), required: 'required', type: 'text', name: 'user[email]'}
                     .form-group
                       .input-group
                         %span.input-group-addon.addon-login
@@ -56,12 +80,12 @@
                     .form-group
                       .checkbox
                         %label.string.optional{for: 'user_remember_me'}
-                          %input#user_remember_me{style: '', type: 'checkbox'}/
+                          %input#user_remember_me{style: '', type: 'checkbox'}
                           = I18n.t('labels.user_remember_me')
-                    %input.btn.btn-custom.btn-block{type: 'submit', value: I18n.t('labels.sign_in')}/
+                    %input.btn.btn-custom.btn-block{type: 'submit', value: I18n.t('labels.sign_in')}
                     %a.btn-block.text-center{href: '/users/forgot_password'}= I18n.t('labels.forgot_pass')
       = yield
-      .footer
+      .footer.navbar-fixed-bottom
         .container
           %ul.pull-left.footer-menu
             %li
@@ -72,4 +96,4 @@
             %li
               ©
               \#{Time.zone.now.year}
-              Coursotheca
+              Coursetheca

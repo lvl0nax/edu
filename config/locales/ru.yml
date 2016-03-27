@@ -5,6 +5,7 @@ ru:
   labels:
     user_remember_me: Запомнить меня
     password: Пароль
+    password_confirmation: Подтверждение пароля
     email: Email
     signup: "Зарегистрироваться"
     pages: "Страницы"

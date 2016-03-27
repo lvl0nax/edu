@@ -5,6 +5,7 @@ en:
   labels:
     user_remember_me: Remember me
     password: Password
+    password_confirmation: Password confirmation
     email: Email
     signup: "Signup"
     pages: "Pages"

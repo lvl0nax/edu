@@ -1,15 +1,15 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
-en:
+ru:
   devise:
-    forgot_password: "Forgot your password?"
-    sign_up: "Sign up"
-    log_in: "Log in"
-    not_receive_confirm: "Didn't receive confirmation instructions?"
-    not_receive_unlock: "Didn't receive unlock instructions?"
-    min_length_hint: "%{count} characters minimum"
+    forgot_password: "Забыли пароль?"
+    log_in: "Войти"
+    sign_up: "Регистрация"
+    not_receive_confirm: "Не получили инструкции по подтверждению?"
+    not_receive_unlock: "Не получили инструкции по разблокированию?"
+    min_length_hint: "Минимум %{count} символов"
     confirmations:
-      confirmed: "Your email address has been successfully confirmed."
+      confirmed: "Ваш E-mail успешно подтвержден."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
