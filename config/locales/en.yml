@@ -2,6 +2,16 @@ en:
   hints:
     hint: example
 
+  notifications:
+    success_provider: 'New provider online courses was created successfully. It will be available after moderation'
+    success_course: 'New online course was created successfully. It will be available after moderation'
+
+  titles:
+    page_coming_soon: 'Page comming soon'
+    main_page_h1: "Find the world's best courses, online"
+    search_p: "Please select your area of interest."
+    w_courses_providers: "Course providers"
+
   labels:
     user_remember_me: Remember me
     password: Password
@@ -15,4 +25,57 @@ en:
     contacts: "Contacts"
     forgot_pass: "Forgot password?"
     sign_in: Sign in
+    sign_out: Sign out
     courses_list: Courses
+    subjects_list: Subjects
+    members_list: Members
+    providers_list: Providers
+    all_subjects: All subjects
+    best_providers: The best providers
+    add_course: Add course
+    add_provider: Add provider
+    choose_file: Choose file
+    save: Submit
+    cancel: cancel
+    provider:
+      name: Name
+      site: URL
+      description: Description
+      icon: Icon
+      currency: Currency
+      free_content: Free content?
+      average_price: Average price
+    course:
+      name: Name
+      site: URL
+      description: Description
+      language: Language(Rus/Eng)
+      duration: Duration
+      start_date: Start Date
+      end_date: End Date
+      certificate: Certificate
+      price: Price
+      subject_id: Subject
+      provider_id: Provider
+    about_page:
+      link: link
+      start: "In today's fast-moving world we should study every day. But number free online courses growing very fast."
+      goal: 'Coursetheca was created to help people make a choice for the best online course.'
+      help: 'But we start this project few days ago. And we would be greatfull if you help us append some online
+             courses to our catalog. You just need to sing up by this %{link}. After this you will see links to forms for
+             creating online courses.'
+      sign: 'With Best Regards. coursetheca.com'
+    contacts_page:
+      name: Name
+      writing_here: 'Write message here...'
+      submit: Submit
+      sending_message: Send Message
+      hint: If you have any question, feel free to send message us
+    providers:
+      has_free_content: Has free content
+    courses:
+      one: "%{count} course"
+      zero: No courses
+      few: "%{count} courses"
+      other: "%{count} courses"
+      many: "%{count} courses"

@@ -1,0 +1,98 @@
+%section.main
+
+  -#.account-header
+  -#  .container
+  -#    .row
+  -#      .col-sm-4.col-md-3.col-lg-2
+  -#        / User avatar
+  -#        .profile_avatar
+  -#          %img.img-responsive{:alt => "avatar", :src => "assets/img/people/gie.jpg"}/
+  -#      .col-sm-8.col-md-9.col-lg-10
+  -#        .profile_summary
+  -#          / User name
+  -#          %h3.profile_name John Doe
+  -#          / User status
+  -#          %p Hello.. I'am a frontend developer.
+  -#          / Contact
+  -#          %a.btn.btn-primary.btn-warning.btn-sm{:href => "index.html"}
+  -#            %i.fa.fa-sign-out
+  -#            Sign Out
+  / / .profile__summary
+  / / .row
+  / / .container
+  .container
+    .row
+      = render 'layouts/user_profile_menu'
+      .col-md-9.col-sm-9
+        .panel.panel-default
+          .panel-heading
+            %h4.panel-title= t('labels.add_course')
+          -#%form.new_provider.form-horizontal{'accept-charset' => 'utf-8', enctype: 'multipart/form-data', action: providers_path, method: 'post'}
+          = simple_form_for(@course, url: courses_path, html: {class: 'form-horizontal', multipart: true}) do |f|
+            =f.error_notification
+            .panel-body
+              .form-group
+                %label.col-sm-3.control-label= t('labels.course.provider_id')
+                .col-sm-3
+                  =select_tag 'course[provider_id]', options_from_collection_for_select(Provider.all, 'id', 'name'), include_blank: true
+
+              .form-group
+                %label.col-sm-3.control-label= t('labels.course.name')
+                .col-sm-9
+                  %input.form-control{type: 'text', name: 'course[name]'}
+
+              .form-group
+                %label.col-sm-3.control-label= "#{t('labels.course.site')}*"
+                .col-sm-9
+                  %input.form-control{required: 'required', type: 'url', name: 'course[site]'}
+
+              .form-group
+                %label.col-sm-3.control-label= "#{t('labels.course.duration')}"
+                .col-sm-9
+                  %input.form-control{ type: 'text', name: 'course[duration]'}
+
+              .form-group
+                %label.col-sm-3.control-label= "#{t('labels.course.start_date')}"
+                .col-sm-9
+                  %input.form-control{type: 'date', name: 'course[start_date]'}
+
+              .form-group
+                %label.col-sm-3.control-label= "#{t('labels.course.end_date')}"
+                .col-sm-9
+                  %input.form-control{type: 'date', name: 'course[end_date]'}
+
+              .form-group
+                %label.col-sm-3.control-label= t('labels.course.price')
+                .col-sm-3
+                  %input.form-control{type: 'number', name: 'course[price]',  step: '0.01'}
+
+              .form-group
+                %label.col-sm-3.control-label= t('labels.course.language')
+                .col-sm-3
+                  =select_tag 'course[language]', options_for_select(%w(ru en), 'en')
+
+              .form-group
+                %label.col-sm-3.control-label= t('labels.course.subject_id')
+                .col-sm-3
+                  =select_tag 'course[subject_id]', options_from_collection_for_select(Subject.all, 'id', 'name')
+
+              .form-group
+                %label.col-sm-3.control-label{for: 'course_certificate'}
+                  = t('labels.course.certificate')
+                .col-sm-1
+                  %input#course_certificate.form-control{type: 'checkbox', name: 'course[certificate]'}
+
+              .form-group
+                %label.col-sm-3.control-label= t('labels.course.description')
+                .col-sm-9
+                  %textarea.form-control{placeholder: t('labels.course.description'), type: 'text', name: 'course[description]', rows: 5}
+
+            .panel-footer
+              .row
+                .col-sm-offset-3.col-sm-9
+                  %button.btn.btn-custom{type: 'submit'}
+                    %i.fa.fa-save
+                    = t('labels.save')
+                  %a.btn.btn-default{href: url_for(:back)}
+                    %i.fa.fa-close
+                    = t('labels.cancel')

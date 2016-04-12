@@ -1,0 +1,118 @@
+.provider-item{style: 'width: 250px;'}
+  .item
+    .item-ads-grid
+      //.item-badge-grid.premium-ads
+      //  %a{href: '#'} Featured Ads
+      //.item-badge-grid.featured-ads
+      //  %a{href: '#'} Featured Ads
+      .item-img-grid
+        = image_tag provider.icon_url(:medium), alt: 'Edit Entry', class: 'img-responsive img-center', size: '150x150'
+      .item-title
+        %a{href: provider_path(provider)}
+          %h4= provider.name
+      .item-meta
+        %ul
+          %li.item-date
+            %i.fa.fa-book
+            = t('labels.courses', count: provider.courses.size)
+          %li.item-cat
+            %i.fa.fa-bars
+            = provider.subjects.first(2).join(', ')
+          %li.item-location
+            %a{href: provider.site}
+              %i.fa.fa-external-link
+              = provider.site
+      .product-footer
+        .item-price-grid.pull-left
+          %h3
+            %i.fa{ class: "fa-#{provider.currency}" }
+            = number_to_currency(provider.average_price, unit: '')
+          - if provider.free_content
+            %span= t('labels.providers.has_free_content')
+        .item-action-grid.pull-right
+          %ul
+            %li
+              %a.btn.btn-default.btn-sm{'data-placement' => 'top', 'data-toggle' => 'tooltip', href: '#', title: 'Save Favorite'}
+                %i.fa.fa-heart
+            %li
+              %a.btn.btn-success.btn-sm{'data-placement' => 'top', 'data-toggle' => 'tooltip', href: '/', title: 'Show Details'}
+                %i.fa.fa-eye
+-#
+  .owl-item{style: 'width: 250px;'}
+    .item
+      .item-ads-grid
+        .item-badge-grid.featured-ads
+          %a{href: '#'} Featured Ads
+        .item-img-grid
+          %img.img-responsive.img-center{alt: '', src: 'assets/img/products/product-1.jpg'}/
+        .item-title
+          %a{href: '/course/1'}
+            %h4 Lenovo A326 Black 4GB RAM
+        .item-meta
+          %ul
+            %li.item-date
+              %i.fa.fa-clock-o
+              Today 10.35 am
+            %li.item-cat
+              %i.fa.fa-bars
+              %a{href: '/course/1'} Electronics
+              ,
+              %a{href: '/course/1'} Smartphone
+            %li.item-location
+              %a{href: '/course/1'}
+                %i.fa.fa-map-marker
+                Manchester
+            %li.item-type
+              %i.fa.fa-bookmark
+              New
+        .product-footer
+          .item-price-grid.pull-left
+            %h3 $ 100
+            %span Negotiable
+          .item-action-grid.pull-right
+            %ul
+              %li
+                %a.btn.btn-default.btn-sm{'data-placement' => 'top', 'data-toggle' => 'tooltip', href: '#', title: 'Save Favorite'}
+                  %i.fa.fa-heart
+              %li
+                %a.btn.btn-success.btn-sm{'data-placement' => 'top', 'data-toggle' => 'tooltip', href: '/', title: 'Show Details'}
+                  %i.fa.fa-eye
+    .owl-item{style: 'width: 250px;'}
+      .item
+        .item-ads-grid
+          .item-badge-grid.premium-ads
+            %a{href: '#'} Featured Ads
+          .item-img-grid
+            %img.img-responsive.img-center{alt: '', src: 'assets/img/products/product-6.jpg'}/
+          .item-title
+            %a{href: 'detail.html'}
+              %h4 Samsung Tab 3 V 116
+          .item-meta
+            %ul
+              %li.item-date
+                %i.fa.fa-clock-o
+                Today 10.35 am
+              %li.item-cat
+                %i.fa.fa-bars
+                %a{href: '/course/1'} Electronics
+                ,
+                %a{href: '/course/1'} Smartphone
+              %li.item-location
+                %a{href: '/course/1'}
+                  %i.fa.fa-map-marker
+                  Manchester
+              %li.item-type
+                %i.fa.fa-bookmark
+                New
+          .product-footer
+            .item-price-grid.pull-left
+              %h3 $ 100
+              %span Negotiable
+            .item-action-grid.pull-right
+              %ul
+                %li
+                  %a.btn.btn-default.btn-sm{'data-placement' => 'top', 'data-toggle' => 'tooltip', href: '#', title: 'Save Favorite'}
+                    %i.fa.fa-heart
+                %li
+                  %a.btn.btn-success.btn-sm{'data-placement' => 'top', 'data-toggle' => 'tooltip', href: 'detail.html', title: 'Show Details'}
+                    %i.fa.fa-eye

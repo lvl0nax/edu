@@ -1,17 +1,21 @@
+- if notice.present?
+  .alert.alert-success{role: 'alert'}= notice
+- if alert.present?
+  .alert.alert-info{role: 'alert'} = alert
+
 %section.hero
   .container.text-center
-    %h2.hero-title Find an Awesome Things Here
-    %p.hero-description.hidden-xs Find all things you need on DLapak. We give you a simple way.
+    %h1.hero-title= t('titles.main_page_h1')
+    %p.hero-description.hidden-xs= t('titles.search_p')
     .row.hero-search-box
       %form
         .col-md-4.col-sm-4.search-input
-          %input.form-control.input-lg.search-first{placeholder: "I'm feeling lucky...", type: 'text'}/
-        .col-md-4.col-sm-4.search-input
           %select.form-control.input-lg.search-second
-            %option{selected: 'selected'} All Location
-            %option New York
-            %option Washington
-            %option California
+            %option{selected: 'selected', value: 'all'}= t('labels.all_subjects')
+            - @all_subjects.each do |subject|
+              %option{value: subject.id}= subject.name
+        .col-md-4.col-sm-4.search-input
+          %input.form-control.input-lg.search-first{placeholder: "I'm feeling lucky...", type: 'text'}/
         .col-md-4.col-sm-4.search-input
           %button.btn.btn-custom.btn-block.btn-lg
             %i.fa.fa-search
@@ -24,7 +28,7 @@
             .col-xs-4.col-sm-3
               .shortcut
                 %a{href: '/'}
-                  = image_tag subject.icon_url(:small)
+                  = image_tag subject.icon_url(:small), size: '110x110'
                 %a{href: '/'}
                   %h3= subject.name
                 %span.total-items 26
@@ -32,150 +36,45 @@
         .row
           .col-md-12
             .section-header
-              %h2 Featured
-            #featured-products.owl-carousel.owl-carousel-featured.owl-theme{style: 'opacity: 1; display: block;'}
-              .owl-wrapper-outer
-                .owl-wrapper
-                  .owl-item{style: 'width: 250px;'}
-                    .item
-                      .item-ads-grid
-                        .item-badge-grid.featured-ads
-                          %a{href: '#'} Featured Ads
-                        .item-img-grid
-                          %img.img-responsive.img-center{alt: '', src: 'assets/img/products/product-1.jpg'}/
-                        .item-title
-                          %a{href: '/course/1'}
-                            %h4 Lenovo A326 Black 4GB RAM
-                        .item-meta
-                          %ul
-                            %li.item-date
-                              %i.fa.fa-clock-o
-                              Today 10.35 am
-                            %li.item-cat
-                              %i.fa.fa-bars
-                              %a{href: '/course/1'} Electronics
-                              ,
-                              %a{href: '/course/1'} Smartphone
-                            %li.item-location
-                              %a{href: '/course/1'}
-                                %i.fa.fa-map-marker
-                                Manchester
-                            %li.item-type
-                              %i.fa.fa-bookmark
-                              New
-                        .product-footer
-                          .item-price-grid.pull-left
-                            %h3 $ 100
-                            %span Negotiable
-                          .item-action-grid.pull-right
-                            %ul
-                              %li
-                                %a.btn.btn-default.btn-sm{'data-placement' => 'top', 'data-toggle' => 'tooltip', href: '#', title: 'Save Favorite'}
-                                  %i.fa.fa-heart
-                              %li
-                                %a.btn.btn-success.btn-sm{'data-placement' => 'top', 'data-toggle' => 'tooltip', href: '/', title: 'Show Details'}
-                                  %i.fa.fa-eye
-                  .owl-item{style: 'width: 250px;'}
-                    .item
-                      .item-ads-grid
-                        .item-badge-grid.premium-ads
-                          %a{href: '#'} Featured Ads
-                        .item-img-grid
-                          %img.img-responsive.img-center{alt: '', src: 'assets/img/products/product-6.jpg'}/
-                        .item-title
-                          %a{href: 'detail.html'}
-                            %h4 Samsung Tab 3 V 116
-                        .item-meta
-                          %ul
-                            %li.item-date
-                              %i.fa.fa-clock-o
-                              Today 10.35 am
-                            %li.item-cat
-                              %i.fa.fa-bars
-                              %a{href: '/course/1'} Electronics
-                              ,
-                              %a{href: '/course/1'} Smartphone
-                            %li.item-location
-                              %a{href: '/course/1'}
-                                %i.fa.fa-map-marker
-                                Manchester
-                            %li.item-type
-                              %i.fa.fa-bookmark
-                              New
-                        .product-footer
-                          .item-price-grid.pull-left
-                            %h3 $ 100
-                            %span Negotiable
-                          .item-action-grid.pull-right
-                            %ul
-                              %li
-                                %a.btn.btn-default.btn-sm{'data-placement' => 'top', 'data-toggle' => 'tooltip', href: '#', title: 'Save Favorite'}
-                                  %i.fa.fa-heart
-                              %li
-                                %a.btn.btn-success.btn-sm{'data-placement' => 'top', 'data-toggle' => 'tooltip', href: 'detail.html', title: 'Show Details'}
-                                  %i.fa.fa-eye
-              .owl-controls.clickable
-                .owl-pagination
-                  .owl-page.active
-                    %span
-                  .owl-page
-                    %span
+              %h2= t('labels.best_providers')
+            #featured-products{style: 'opacity: 1; display: block;'}
+              - @all_providers.first(3).each do |provider|
+                = render 'provider_preview', provider: provider
+
       .col-md-4.col-sm-4
+        - unless current_user
+          .widget
+            .widget-header
+              %h3= t('devise.sign_up')
+            .widget-body
+              = simple_form_for(:user, url: registration_path(:user)) do |f|
+                .form-group
+                  .input-group
+                    %span.input-group-addon.addon-login
+                      %i.fa.fa-user
+                    %input.form-control.input-login{placeholder:  I18n.t('labels.email'), required: 'required', type: 'text', name: 'user[email]', autofocus: true}
+                .form-group
+                  .input-group
+                    %span.input-group-addon.addon-login
+                      %i.addon.fa.fa-lock
+                    %input.form-control.input-login{placeholder: "#{t('labels.password')}(#{t('devise.min_length_hint', count: @minimum_password_length)})", required: 'required', type: 'password', name: 'user[password]'}
+                .form-group
+                  .input-group
+                    %span.input-group-addon.addon-login
+                      %i.addon.fa.fa-lock
+                    %input.form-control.input-login{placeholder: I18n.t('labels.password_confirmation'), required: 'required', type: 'password', name: 'user[password_confirmation]'}
+                %input.btn.btn-custom.btn-block{type: 'submit', value: I18n.t('labels.signup')}
+
         .widget
           .widget-header
-            %h3 Quick Signup
-          .widget-body
-            %form
-              .form-group
-                %input.form-control.input-lg{placeholder: 'Name', type: 'text'}/
-              .form-group
-                %input.form-control.input-lg{placeholder: 'Email', type: 'text'}/
-              .form-group
-                %input.form-control.input-lg{placeholder: 'Password', type: 'password'}/
-              .form-group
-                .checkbox
-                  %label.string.optional{for: 'terms'}
-                    %input#terms{style: '', type: 'checkbox'}/
-                    %a{href: '#'} I Agree with Term and Conditions
-              .form-group
-                %button.btn.btn-block.btn-custom Sign Up
-        .widget
-          .widget-header
-            %h3 Trends
+            %h2= t('titles.w_courses_providers')
           .widget-body
             %ul.trends
-              %li
-                %a{href: '#'}
-                  Smartphone  
-                  %span.item-numbers (2,342)
-              %li
-                %a{href: '#'}
-                  Watch & Jewelry  
-                  %span.item-numbers (2,342)
-              %li
-                %a{href: '#'}
-                  Clothes  
-                  %span.item-numbers (2,342)
-              %li
-                %a{href: '#'}
-                  Shoes  
-                  %span.item-numbers (2,342)
-              %li
-                %a{href: '#'}
-                  Music  
-                  %span.item-numbers (2,342)
-              %li
-                %a{href: '#'}
-                  Furniture  
-                  %span.item-numbers (2,342)
-              %li
-                %a{href: '#'}
-                  Photography  
-                  %span.item-numbers (242)
-              %li
-                %a{href: '#'}
-                  Web Development  
-                  %span.item-numbers (2,342)
+              - @all_providers.each do |provider|
+                %li
+                  = link_to provider_path(provider) do
+                    = provider.name
+                    %span.badge= provider.courses_count
         .banner-widget
           %img.img-responsive{alt: 'banner', src: 'http://placehold.it/600x275'}/
 .counter
@@ -184,24 +83,24 @@
       .col-md-3
         .item-counter
           %span.item-icon
-            %i.fa.fa-database
-          .item-count{'data-from' => '0', 'data-refresh-interval' => '100', 'data-speed' => '3000', 'data-to' => '7803'} 7803
-          %span.item-info Items
+            %i.fa.fa-university
+          .item-count= Provider.moderated.count
+          %span.item-info= t('labels.providers_list')
       .col-md-3
         .item-counter
           %span.item-icon
-            %i.fa.fa-user-plus
-          .item-count{'data-from' => '0', 'data-refresh-interval' => '50', 'data-speed' => '5000', 'data-to' => '427'} 427
-          %span.item-info Sellers
+            %i.fa.fa-book
+          .item-count= Course.moderated.count
+          %span.item-info= t('labels.courses_list')
       .col-md-3
         .item-counter
           %span.item-icon
-            %i.fa.fa-map-marker
-          .item-count{'data-from' => '0', 'data-refresh-interval' => '80', 'data-speed' => '5000', 'data-to' => '639'} 639
-          %span.item-info Locations
+            %i.fa.fa-tags
+          .item-count= Subject.count
+          %span.item-info= t('labels.subjects_list')
       .col-md-3
         .item-counter
           %span.item-icon
             %i.fa.fa-users
-          .item-count{'data-from' => '0', 'data-refresh-interval' => '80', 'data-speed' => '5000', 'data-to' => '1548'} 1548
-          %span.item-info Members
+          .item-count= User.count + Course.count + Provider.count + Subject.count
+          %span.item-info= t('labels.members_list')

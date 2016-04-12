@@ -2,22 +2,44 @@
 #
 # Table name: providers
 #
-#  id              :integer          not null, primary key
-#  name            :string
-#  site            :string
-#  description     :text
-#  moderated       :boolean          default(FALSE)
-#  seo_title       :string
-#  seo_keywords    :string
-#  seo_description :text
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                 :integer          not null, primary key
+#  name_ru            :string
+#  site               :string
+#  description_ru     :text
+#  moderated          :boolean          default(FALSE)
+#  seo_title_ru       :string
+#  seo_keywords_ru    :string
+#  seo_description_ru :text
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  seo_title_en       :string
+#  seo_keywords_en    :string
+#  seo_description_en :string
+#  name_en            :string
+#  description_en     :string
+#  courses_count      :integer          default(0)
+#  icon               :string
+#  currency           :integer
+#  free_content       :boolean
+#  average_price      :float
+#  user_id            :integer
 #
 
 class Provider < ActiveRecord::Base
+  include Translatable
+  translatable_fields :name, :description, :seo_title, :seo_keywords, :seo_description
+
+  enum currency: [:RUB, :USD]
+
+  mount_uploader :icon, IconUploader
+
+  belongs_to :user
   has_many :courses
   has_many :subjects_providers
   has_many :subjects, through: :subjects_providers
 
-  validates_presence_of :name, :site
+  validates_presence_of :site
+  # validates_uniqueness_of :site
+
+  scope :moderated, -> { where(moderated: true) }
 end

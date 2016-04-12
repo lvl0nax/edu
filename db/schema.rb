@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321181740) do
+ActiveRecord::Schema.define(version: 20160412165734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,24 +50,31 @@ ActiveRecord::Schema.define(version: 20160321181740) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "courses", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name_ru"
     t.string   "site"
-    t.text     "description"
-    t.boolean  "moderated",       default: false
+    t.text     "description_ru"
+    t.boolean  "moderated",          default: false
     t.float    "price"
     t.integer  "language"
     t.integer  "provider_id"
     t.integer  "subject_id"
     t.integer  "direction_id"
-    t.string   "duration"
+    t.string   "duration_ru"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.boolean  "certificate",     default: false
-    t.string   "seo_title"
-    t.string   "seo_keywords"
-    t.text     "seo_description"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.boolean  "certificate",        default: false
+    t.string   "seo_title_ru"
+    t.string   "seo_keywords_ru"
+    t.text     "seo_description_ru"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "user_id"
+    t.string   "seo_title_en"
+    t.string   "seo_keywords_en"
+    t.string   "seo_description_en"
+    t.string   "duration_en"
+    t.string   "name_en"
+    t.string   "description_en"
   end
 
   create_table "directions", force: :cascade do |t|
@@ -80,27 +87,49 @@ ActiveRecord::Schema.define(version: 20160321181740) do
     t.text     "seo_description"
   end
 
-  create_table "providers", force: :cascade do |t|
+  create_table "feed_backs", force: :cascade do |t|
     t.string   "name"
+    t.string   "email"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "providers", force: :cascade do |t|
+    t.string   "name_ru"
     t.string   "site"
-    t.text     "description"
-    t.boolean  "moderated",       default: false
-    t.string   "seo_title"
-    t.string   "seo_keywords"
-    t.text     "seo_description"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.text     "description_ru"
+    t.boolean  "moderated",          default: false
+    t.string   "seo_title_ru"
+    t.string   "seo_keywords_ru"
+    t.text     "seo_description_ru"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "seo_title_en"
+    t.string   "seo_keywords_en"
+    t.string   "seo_description_en"
+    t.string   "name_en"
+    t.string   "description_en"
+    t.integer  "courses_count",      default: 0
+    t.string   "icon"
+    t.integer  "currency"
+    t.boolean  "free_content"
+    t.float    "average_price"
+    t.integer  "user_id"
   end
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name_ru"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "seo_title"
-    t.string   "seo_keywords"
-    t.text     "seo_description"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "seo_title_ru"
+    t.string   "seo_keywords_ru"
+    t.text     "seo_description_ru"
     t.string   "name_en"
     t.string   "icon"
+    t.string   "seo_title_en"
+    t.string   "seo_keywords_en"
+    t.string   "seo_description_en"
   end
 
   create_table "subjects_providers", force: :cascade do |t|

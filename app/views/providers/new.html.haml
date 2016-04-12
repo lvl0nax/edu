@@ -1,0 +1,85 @@
+%section.main
+
+  -#.account-header
+  -#  .container
+  -#    .row
+  -#      .col-sm-4.col-md-3.col-lg-2
+  -#        / User avatar
+  -#        .profile_avatar
+  -#          %img.img-responsive{:alt => "avatar", :src => "assets/img/people/gie.jpg"}/
+  -#      .col-sm-8.col-md-9.col-lg-10
+  -#        .profile_summary
+  -#          / User name
+  -#          %h3.profile_name John Doe
+  -#          / User status
+  -#          %p Hello.. I'am a frontend developer.
+  -#          / Contact
+  -#          %a.btn.btn-primary.btn-warning.btn-sm{:href => "index.html"}
+  -#            %i.fa.fa-sign-out
+  -#            Sign Out
+  / / .profile__summary
+  / / .row
+  / / .container
+  .container
+    .row
+      = render 'layouts/user_profile_menu'
+      .col-md-9.col-sm-9
+        .panel.panel-default
+          .panel-heading
+            %h4.panel-title= t('labels.add_provider')
+          -#%form.new_provider.form-horizontal{'accept-charset' => 'utf-8', enctype: 'multipart/form-data', action: providers_path, method: 'post'}
+          = simple_form_for(@provider, url: providers_path, html: {class: 'form-horizontal', multipart: true}) do |f|
+            =f.error_notification
+            .panel-body
+              .form-group
+                %label.col-sm-3.control-label= t('labels.provider.name')
+                .col-sm-9
+                  %input.form-control{type: 'text', name: 'provider[name]'}
+
+              .form-group
+                %label.col-sm-3.control-label= "#{t('labels.provider.site')}*"
+                .col-sm-9
+                  %input.form-control{required: 'required', type: 'url', name: 'provider[site]'}
+
+              .form-group
+                %label.col-sm-3.control-label= t('labels.provider.average_price')
+                .col-sm-3
+                  %input.form-control{type: 'number', name: 'provider[average_price]',  step: '0.01'}
+
+              .form-group
+                %label.col-sm-3.control-label= t('labels.provider.currency')
+                .col-sm-3
+                  =select_tag 'provider[currency]', options_for_select(%w(USD RUB), 'USD')
+
+              .form-group
+                %label.col-sm-3.control-label{for: 'provider_free_content'}
+                  = t('labels.provider.free_content')
+                .col-sm-1
+                  %input#provider_free_content.form-control{type: 'checkbox', name: 'provider[free_content]'}
+
+              .form-group
+                %label.col-sm-3.control-label= t('labels.provider.description')
+                .col-sm-9
+                  %textarea.form-control{placeholder: t('labels.provider.description'), type: 'text', name: 'provider[description]', rows: 5}
+
+              .form-group
+                %label.col-sm-3.control-label= t('labels.provider.icon')
+                .col-sm-9
+                  %input#filestyle-0.filestyle{style: 'position: absolute; clip: rect(0px 0px 0px 0px);', tabindex: '-1', type: 'file', name: 'provider[icon]'}
+                  .bootstrap-filestyle.input-group
+                    %input.form-control{disabled: 'disabled', type: 'text'}
+                    %span.group-span-filestyle.input-group-btn{tabindex: '0'}
+                      %label.btn.btn-primary{for: 'filestyle-0'}
+                        %span.fa.fa-folder-open
+                        = t('labels.choose_file')
+                  %span.help-block
+
+            .panel-footer
+              .row
+                .col-sm-offset-3.col-sm-9
+                  %button.btn.btn-custom{type: 'submit'}
+                    %i.fa.fa-save
+                    = t('labels.save')
+                  %a.btn.btn-default{href: url_for(:back)}
+                    %i.fa.fa-close
+                    = t('labels.cancel')

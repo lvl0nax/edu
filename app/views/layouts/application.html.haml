@@ -21,12 +21,22 @@
                 Coursetheca
           .navbar-collapse.collapse
             %ul.nav.navbar-nav.navbar-right
-              %li.new-ads
-                %a.btn.btn-ads.btn-block{href: '/courses'}= I18n.t('labels.courses_list')
               - if current_user
-                %li
-                  %a{href: '/profile'}= I18n.t('labels.to_profile')
-              - else
+                -#%li.new-ads
+                -#  .btn-group
+                -#    %a.btn.btn-ads.with_right_border{href: '/courses'}= I18n.t('labels.add_course')
+                -#    %a.btn.btn-ads.with_left_border{href: '/courses'}= I18n.t('labels.add_provider')
+                %li.new-ads
+                  .btn-group
+                    %a.btn.btn-ads.with_right_border{href: new_course_path}= I18n.t('labels.add_course')
+                    %a.btn.btn-ads.with_left_border.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
+                      %strong.caret
+                    %ul.dropdown-menu
+                      %li
+                        %a.btn.btn-ads{href: new_provider_path}= I18n.t('labels.add_provider')
+              %li
+                %a{href: courses_path}= I18n.t('labels.courses_list')
+              - unless current_user
                 %li
                   %a{href: '/users/signup'}= I18n.t('labels.signup')
               %li.dropdown
@@ -35,63 +45,52 @@
                   = I18n.t('labels.pages')
                 %ul.dropdown-menu
                   %li
-                    %a{href: '/about'}= I18n.t('labels.about')
+                    %a{href: about_path}= I18n.t('labels.about')
+                    %a{href: contacts_path}= I18n.t('labels.contacts')
               %li.dropdown
                 %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
-                  %i.fa.fa-user
+                  - if current_user
+                    %i.fa.fa-user
+                  - else
+                    = t('labels.sign_in')
                   = succeed "\u{a0}" do
                     %strong.caret
-                .dropdown-menu.dropdown-login{style: 'padding:15px;min-width:250px'}
-                  = simple_form_for(:user, url: session_path(:user)) do |f|
-                    .form-group
-                      .input-group
-                        %span.input-group-addon.addon-login
-                          %i.fa.fa-user
-                        %input.form-control.input-login{placeholder:  I18n.t('labels.email'), required: 'required', type: 'text', name: 'user[email]'}
-                    .form-group
-                      .input-group
-                        %span.input-group-addon.addon-login
-                          %i.addon.fa.fa-lock
-                        %input.form-control.input-login{placeholder: I18n.t('labels.password'), required: 'required', type: 'password', name: 'user[password]'}
-                    .form-group
-                      .checkbox
-                        %label.string.optional{for: 'user_remember_me'}
-                          %input#user_remember_me{style: '', type: 'checkbox', name: 'user[remember_me]'}
-                          = I18n.t('labels.user_remember_me')
-                    %input.btn.btn-custom.btn-block{type: 'submit', value: I18n.t('labels.sign_in')}
-                    %a.btn-block.text-center{href: '/users/forgot_password'}= I18n.t('labels.forgot_pass')
-              %li.dropdown
-                %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
-                  %i.fa.fa-user
-                  = succeed "\u{a0}" do
-                    %strong.caret
-                .dropdown-menu.dropdown-login{style: 'padding:15px;min-width:250px'}
-                  %form
-                    .form-group
-                      .input-group
-                        %span.input-group-addon.addon-login
-                          %i.fa.fa-user
-                        %input.form-control.input-login{placeholder:  I18n.t('labels.email'), required: 'required', type: 'text', name: 'user[email]'}
-                    .form-group
-                      .input-group
-                        %span.input-group-addon.addon-login
-                          %i.addon.fa.fa-lock
-                        %input.form-control.input-login{placeholder: I18n.t('labels.password'), required: 'required', type: 'password'}
-                    .form-group
-                      .checkbox
-                        %label.string.optional{for: 'user_remember_me'}
-                          %input#user_remember_me{style: '', type: 'checkbox'}
-                          = I18n.t('labels.user_remember_me')
-                    %input.btn.btn-custom.btn-block{type: 'submit', value: I18n.t('labels.sign_in')}
-                    %a.btn-block.text-center{href: '/users/forgot_password'}= I18n.t('labels.forgot_pass')
+                - if current_user
+                  %ul.dropdown-menu
+                    %li
+                      %a{href: '/profile'}= I18n.t('labels.to_profile')
+                    %li.divider
+                    %li
+                      %a{href: destroy_user_session_path, method: :delete}= t('labels.sign_out')
+                - else
+                  .dropdown-menu.dropdown-login{style: 'padding:15px;min-width:250px'}
+                    = simple_form_for(:user, url: session_path(:user)) do |f|
+                      .form-group
+                        .input-group
+                          %span.input-group-addon.addon-login
+                            %i.fa.fa-user
+                          %input.form-control.input-login{placeholder:  I18n.t('labels.email'), required: 'required', type: 'text', name: 'user[email]'}
+                      .form-group
+                        .input-group
+                          %span.input-group-addon.addon-login
+                            %i.addon.fa.fa-lock
+                          %input.form-control.input-login{placeholder: I18n.t('labels.password'), required: 'required', type: 'password', name: 'user[password]'}
+                      .form-group
+                        .checkbox
+                          %label.string.optional{for: 'user_remember_me'}
+                            %input#user_remember_me{style: '', type: 'checkbox', name: 'user[remember_me]'}
+                            = I18n.t('labels.user_remember_me')
+                      %input.btn.btn-custom.btn-block{type: 'submit', value: I18n.t('labels.sign_in')}
+                      %a.btn-block.text-center{href: '/users/forgot_password'}= I18n.t('labels.forgot_pass')
+
       = yield
-      .footer.navbar-fixed-bottom
+      .footer
         .container
           %ul.pull-left.footer-menu
             %li
-              %a{href: '/'}= I18n.t('labels.home')
-              %a{href: '/about'}= I18n.t('labels.about')
-              %a{href: '/contacts'}= I18n.t('labels.contacts')
+              %a{href: root_path}= I18n.t('labels.home')
+              %a{href: about_path}= I18n.t('labels.about')
+              %a{href: contacts_path}= I18n.t('labels.contacts')
           %ul.pull-right.footer-menu
             %li
               ©

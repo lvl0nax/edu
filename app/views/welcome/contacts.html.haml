@@ -1,0 +1,23 @@
+%section.main
+  .container
+    .row
+      .col-md-12
+        .widget
+          .widget-header
+            %h3= t('labels.contacts_page.sending_message')
+          .widget-body
+            = simple_form_for(:feed_back, url: feed_backs_path) do |f|
+              %p= t('labels.contacts_page.hint')
+              .row
+                .col-xs-4
+                  %input.form-control.input-lg{placeholder: t('labels.contacts_page.name'), type: 'text', name: 'feed_back[name]', autofocus: true}
+                .col-xs-4
+                  %input.form-control.input-lg{placeholder: 'Email', type: 'text', name: 'feed_back[email]', autofocus: true}
+              %br
+              .row
+                .col-xs-12
+                  %textarea.form-control{placeholder: t('labels.contacts_page.writing_here'), rows: '8', required: 'required', name: 'feed_back[content]'}
+              %br
+              .row
+                .col-xs-12
+                  %button.btn.btn-lg.btn-custom.pull-right= t('labels.contacts_page.submit')

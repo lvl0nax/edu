@@ -1,0 +1,12 @@
+.col-md-3.col-sm-3
+  .widget
+    .widget-header
+      %h3= current_user.email
+    .widget-body
+      %ul.author-menus
+        %li
+          %a{href: new_course_path}= I18n.t('labels.add_course')
+        %li
+          %a{href: new_provider_path}= I18n.t('labels.add_provider')
+        %li
+          %a{href: root_path}= t('labels.to_profile')

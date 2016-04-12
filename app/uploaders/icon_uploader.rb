@@ -18,7 +18,7 @@ class IconUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    "/assets/default.jpg"
+    '/assets/default.png'
   end
 
   # Process files as they are uploaded:
@@ -33,8 +33,16 @@ class IconUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [50, 50]
   end
 
-  version :small, :if => :subject? do
+  version :thumb, :if => :subject? do
     process :resize_to_fit => [20, 20]
+  end
+
+  version :small, :if => :provider? do
+    process :resize_to_fit => [20, 20]
+  end
+
+  version :medium, :if => :provider? do
+    process :resize_to_fit => [228, 150]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -51,7 +59,11 @@ class IconUploader < CarrierWave::Uploader::Base
 
   private
 
-  def subject? _picture
+  def subject?(_picture)
     model.is_a? Subject
+  end
+
+  def provider?(_picture)
+    model.is_a? Provider
   end
 end

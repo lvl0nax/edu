@@ -41,6 +41,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'active_admin_theme'
 gem 'haml-rails'
 gem 'haml'
+gem 'rails-i18n'
 
 gem 'twitter-bootstrap-rails'
 gem 'simple_form'

@@ -1,0 +1,12 @@
+%section.main
+  .container
+    .row
+      .col-md-12
+        .post
+          .post-title
+            %h2= t('labels.about')
+          .post-body
+            %p= t('labels.about_page.start')
+            %p= t('labels.about_page.goal')
+            %p= t('labels.about_page.help', link: link_to(t('labels.about_page.link'), new_user_registration_path)).html_safe
+            %p= t('labels.about_page.sign')
