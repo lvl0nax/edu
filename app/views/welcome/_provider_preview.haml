@@ -6,7 +6,7 @@
       //.item-badge-grid.featured-ads
       //  %a{href: '#'} Featured Ads
       .item-img-grid
-        = image_tag provider.icon_url(:medium), alt: 'Edit Entry', class: 'img-responsive img-center', size: '150x150'
+        = image_tag provider.icon_url(:medium), alt: 'Edit Entry', class: 'img-responsive img-center'
       .item-title
         %a{href: provider_path(provider)}
           %h4= provider.name

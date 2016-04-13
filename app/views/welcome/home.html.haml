@@ -33,7 +33,7 @@
             .col-xs-4.col-sm-3
               .shortcut
                 %a{href: courses_path(subject: subject.id)}
-                  = image_tag subject.icon_url(:medium), size: '110x110'
+                  = image_tag subject.icon_url(:medium), class: 'img-responsive img-center'
                 %a{href: courses_path(subject: subject.id)}
                   %h3= subject.name
                 %span.total-items
