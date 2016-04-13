@@ -1,25 +1,24 @@
+%section.container.devise_wrapper
+  .page_wrapper.sign_in_form.widget
+    %h2= t('devise.log_in')
+    %br
+    = simple_form_for(:user, url: session_path(:user)) do |f|
+      .form-group
+        .input-group
+          %span.input-group-addon.addon-login
+            %i.fa.fa-user
+          %input.form-control.input-login{placeholder:  I18n.t('labels.email'), required: 'required', type: 'text', name: 'user[email]'}
+      .form-group
+        .input-group
+          %span.input-group-addon.addon-login
+            %i.addon.fa.fa-lock
+          %input.form-control.input-login{placeholder: I18n.t('labels.password'), required: 'required', type: 'password', name: 'user[password]'}
+      .form-group
+        .checkbox
+          %label.string.optional{for: 'user_remember_me'}
+            %input#user_remember_me{style: '', type: 'checkbox', name: 'user[remember_me]'}
+            = I18n.t('labels.user_remember_me')
+      %input.btn.btn-custom.btn-block{type: 'submit', value: I18n.t('labels.sign_in')}
+    %br
 
-.page_wrapper.sign_in_form.widget
-  %h2= t('devise.log_in')
-  %br
-  = simple_form_for(:user, url: session_path(:user)) do |f|
-    .form-group
-      .input-group
-        %span.input-group-addon.addon-login
-          %i.fa.fa-user
-        %input.form-control.input-login{placeholder:  I18n.t('labels.email'), required: 'required', type: 'text', name: 'user[email]'}
-    .form-group
-      .input-group
-        %span.input-group-addon.addon-login
-          %i.addon.fa.fa-lock
-        %input.form-control.input-login{placeholder: I18n.t('labels.password'), required: 'required', type: 'password', name: 'user[password]'}
-    .form-group
-      .checkbox
-        %label.string.optional{for: 'user_remember_me'}
-          %input#user_remember_me{style: '', type: 'checkbox', name: 'user[remember_me]'}
-          = I18n.t('labels.user_remember_me')
-    %input.btn.btn-custom.btn-block{type: 'submit', value: I18n.t('labels.sign_in')}
-  %br
-
-  = render 'devise/shared/links'
-
+    = render 'devise/shared/links'

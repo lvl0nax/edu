@@ -232,7 +232,7 @@ a:hover{
   margin-top: 81px !important;
   padding-bottom: 70px;
   position: relative;
-  min-height: calc(100vh - 130px);
+  min-height: calc(100vh - 81px);
 }
 .main{
   padding: 30px 0;
@@ -904,13 +904,15 @@ header{
 /*==============pages==================*/
 .sign_in_form{
   max-width: 350px;
-  margin: 130px auto 30px;
+  margin: 0 auto 30px;
 }
 .sign_up_form{
   max-width: 350px;
-  margin: 130px auto 30px;
+  margin: 0 auto 30px;
 }
-
+.devise_wrapper{
+  padding-top: 75px;
+}
 /*==============pages==================*/
 .post-body{
   a{
