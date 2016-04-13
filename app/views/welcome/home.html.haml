@@ -36,7 +36,9 @@
                   = image_tag subject.icon_url(:medium), size: '110x110'
                 %a{href: courses_path(subject: subject.id)}
                   %h3= subject.name
-                %span.total-items 26
+                %span.total-items
+                  %i.fa.fa-book
+                  = t('labels.courses', count: subject.courses.size)
 
         .row
           .col-md-12
