@@ -38,7 +38,7 @@
                 %a{href: courses_path}= I18n.t('labels.courses_list')
               - unless current_user
                 %li
-                  %a{href: '/users/signup'}= I18n.t('labels.signup')
+                  %a{href: new_user_registration_path}= I18n.t('labels.signup')
               %li.dropdown
                 %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
                   %strong.caret
