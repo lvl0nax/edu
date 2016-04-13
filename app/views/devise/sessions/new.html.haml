@@ -1,6 +1,7 @@
 
-.page_wrapper.sign_in_form
+.page_wrapper.sign_in_form.widget
   %h2= t("devise.log_in")
+  %br
   = simple_form_for(:user, url: session_path(:user)) do |f|
     .form-group
       .input-group
