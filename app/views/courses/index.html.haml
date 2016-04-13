@@ -1,1 +1,61 @@
-= t('titles.page_coming_soon')
+%section.category-wrapper
+  .container
+    .row
+      .col-md-3.col-sm-3
+        .widget
+          .widget-header
+            %h3= t('labels.all_subjects')
+          .widget-body
+            %ul.trends
+              - @all_subjects.each do |subject|
+                %li
+                  = link_to providers_path(subject: subject.id) do
+                    = subject.name
+                    %span.item-numbers= subject.courses.size
+      .col-md-9.col-sm-9
+        -#.category-header.no-margin-bottom
+        -#  .row
+        -#    .col-md-4.cat-search-input
+        -#      %select.form-control
+        -#        %option Sort
+        -#        %option Newest
+        -#        %option{:selected => "selected"} Lowest Price
+        -#        %option Highest Price
+        -#    .col-md-4.cat-search-input
+        -#      %select.form-control
+        -#        %option All Type
+        -#        %option New
+        -#        %option{:selected => "selected"} Used
+        -#    .col-md-4.text-right.cat-search-input
+        -#      .view-type
+        -#        %a{"data-original-title" => "List", "data-placement" => "top", "data-toggle" => "tooltip", :href => "category.html", :title => ""}
+        -#          %i.fa.fa-th-list
+        -#        %a{"data-original-title" => "Grid", "data-placement" => "top", "data-toggle" => "tooltip", :href => "category-grid.html", :title => ""}
+        -#          %i.fa.fa-th
+        .search-results-box
+          .row
+            .col-md-12.search-results
+              - if params[:title]
+                = t('labels.keyword')
+                %span= params[:title]
+              = t('labels.results')
+              %span= t('labels.courses', count: @all_courses.size)
+        .list-results
+          .row
+            - @all_courses.each do |course|
+              .col-md-4
+                = render 'course_item', course: course
+
+        -#.row
+        -#  .col-md-12.text-right
+        -#    %ul.pagination
+        -#      %li
+        -#        %a{:href => "#"} 1
+        -#      %li
+        -#        %a{:href => "#"} 2
+        -#      %li.active
+        -#        %a{:href => "#"} 3
+        -#      %li
+        -#        %a{:href => "#"} 4
+        -#      %li
+        -#        %a{:href => "#"} 5

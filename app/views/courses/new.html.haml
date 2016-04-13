@@ -34,7 +34,7 @@
               .form-group
                 %label.col-sm-3.control-label= t('labels.course.provider_id')
                 .col-sm-3
-                  =select_tag 'course[provider_id]', options_from_collection_for_select(Provider.all, 'id', 'name'), include_blank: true
+                  =select_tag 'course[provider_id]', options_from_collection_for_select(Provider.all, 'id', 'name'), include_blank: true, class: 'form-control'
 
               .form-group
                 %label.col-sm-3.control-label= t('labels.course.name')
@@ -69,12 +69,12 @@
               .form-group
                 %label.col-sm-3.control-label= t('labels.course.language')
                 .col-sm-3
-                  =select_tag 'course[language]', options_for_select(%w(ru en), 'en')
+                  =select_tag 'course[language]', options_for_select(%w(ru en), 'en'), class: 'form-control'
 
               .form-group
                 %label.col-sm-3.control-label= t('labels.course.subject_id')
                 .col-sm-3
-                  =select_tag 'course[subject_id]', options_from_collection_for_select(Subject.all, 'id', 'name')
+                  =select_tag 'course[subject_id]', options_from_collection_for_select(Subject.all, 'id', 'name'), class: 'form-control'
 
               .form-group
                 %label.col-sm-3.control-label{for: 'course_certificate'}

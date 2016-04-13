@@ -49,7 +49,7 @@
               .form-group
                 %label.col-sm-3.control-label= t('labels.provider.currency')
                 .col-sm-3
-                  =select_tag 'provider[currency]', options_for_select(%w(USD RUB), 'USD')
+                  =select_tag 'provider[currency]', options_for_select(%w(USD RUB), 'USD'), class: 'form-control'
 
               .form-group
                 %label.col-sm-3.control-label{for: 'provider_free_content'}

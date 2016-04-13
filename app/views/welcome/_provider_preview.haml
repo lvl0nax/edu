@@ -25,7 +25,7 @@
       .product-footer
         .item-price-grid.pull-left
           %h3
-            %i.fa{ class: "fa-#{provider.currency}" }
+            %i.fa{ class: "fa-#{provider.currency.downcase}" }
             = number_to_currency(provider.average_price, unit: '')
           - if provider.free_content
             %span= t('labels.providers.has_free_content')

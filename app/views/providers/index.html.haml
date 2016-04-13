@@ -1,1 +1,19 @@
-= t('titles.page_coming_soon')
+%section.category-wrapper
+  .container
+    .row
+      .col-md-3.col-sm-3
+        .widget
+          .widget-header
+            %h3= t('labels.all_subjects')
+          .widget-body
+            %ul.trends
+              - @all_subjects.each do |subject|
+                %li
+                  = link_to providers_path(subject: subject.id) do
+                    = subject.name
+                    %span.item-numbers= subject.subjects_providers.size
+      .col-md-9.col-sm-9
+        .list-results
+          .row
+            - @all_providers.each do |provider|
+              = render 'welcome/provider_preview', provider: provider

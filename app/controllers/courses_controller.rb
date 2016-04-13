@@ -2,7 +2,13 @@ class CoursesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-
+    @all_courses = Course.moderated.includes(:provider)
+    @all_courses = @all_courses.where(subject_id: params[:subject].to_i) if params[:subject].to_i > 0
+    @all_courses = @all_courses.where(provider_id: params[:provider].to_i) if params[:provider].to_i > 0
+    if (title = params[:title]).present?
+      @all_courses = @all_courses.where('name_ru ILIKE ? or name_en ILIKE ?', "%#{title}%", "%#{title}%")
+    end
+    @all_subjects = Subject.includes(:courses).all
   end
 
   def show

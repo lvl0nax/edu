@@ -2,7 +2,8 @@ class ProvidersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-
+    @all_providers = Provider.moderated
+    @all_subjects = Subject.includes(:subjects_providers).all
   end
 
   def show

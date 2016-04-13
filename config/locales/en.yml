@@ -13,6 +13,7 @@ en:
     w_courses_providers: "Course providers"
 
   labels:
+    lucky: "I'm feeling lucky..."
     user_remember_me: Remember me
     password: Password
     password_confirmation: Password confirmation
@@ -31,6 +32,7 @@ en:
     members_list: Members
     providers_list: Providers
     all_subjects: All subjects
+    all_providers: All providers
     best_providers: The best providers
     add_course: Add course
     add_provider: Add provider
@@ -50,7 +52,9 @@ en:
       site: URL
       description: Description
       language: Language(Rus/Eng)
+      lang: Language
       duration: Duration
+      durat: Duration
       start_date: Start Date
       end_date: End Date
       certificate: Certificate
@@ -79,3 +83,6 @@ en:
       few: "%{count} courses"
       other: "%{count} courses"
       many: "%{count} courses"
+    go_to: "Open"
+    results: "Results :"
+    keyword: "Keyword :"

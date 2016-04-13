@@ -29,20 +29,23 @@ class IconUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :small, :if => :subject? do
-    process :resize_to_fit => [50, 50]
+  version :small, if: :subject? do
+    process resize_to_fit: [110, 110]
+  end
+  version :small, if: :subject? do
+    process resize_to_fit: [50, 50]
   end
 
-  version :thumb, :if => :subject? do
-    process :resize_to_fit => [20, 20]
+  version :thumb, if: :subject? do
+    process resize_to_fit: [20, 20]
   end
 
-  version :small, :if => :provider? do
-    process :resize_to_fit => [20, 20]
+  version :small, if: :provider? do
+    process resize_to_fit: [20, 20]
   end
 
-  version :medium, :if => :provider? do
-    process :resize_to_fit => [228, 150]
+  version :medium, if: :provider? do
+    process resize_to_fit: [228, 150]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

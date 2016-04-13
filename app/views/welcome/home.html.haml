@@ -8,16 +8,21 @@
     %h1.hero-title= t('titles.main_page_h1')
     %p.hero-description.hidden-xs= t('titles.search_p')
     .row.hero-search-box
-      %form
-        .col-md-4.col-sm-4.search-input
-          %select.form-control.input-lg.search-second
+      %form{'accept-charset' => 'utf-8', enctype: 'multipart/form-data', action: courses_path, method: 'get'}
+        .col-md-3.col-sm-3.search-input
+          %select.form-control.input-lg.search-second{name: 'subject'}
             %option{selected: 'selected', value: 'all'}= t('labels.all_subjects')
             - @all_subjects.each do |subject|
               %option{value: subject.id}= subject.name
-        .col-md-4.col-sm-4.search-input
-          %input.form-control.input-lg.search-first{placeholder: "I'm feeling lucky...", type: 'text'}/
-        .col-md-4.col-sm-4.search-input
-          %button.btn.btn-custom.btn-block.btn-lg
+        .col-md-3.col-sm-3.search-input
+          %select.form-control.input-lg.search-second{name: 'provider'}
+            %option{selected: 'selected', value: 'all'}= t('labels.all_providers')
+            - @all_providers.each do |provider|
+              %option{value: provider.id}= provider.name
+        .col-md-3.col-sm-3.search-input
+          %input.form-control.input-lg.search-first{placeholder: t('labels.lucky'), type: 'text', name: 'title'}
+        .col-md-3.col-sm-3.search-input
+          %button.btn.btn-custom.btn-block.btn-lg{type: 'submit'}
             %i.fa.fa-search
 %section.main
   .container
@@ -27,9 +32,9 @@
           - @all_subjects.each do |subject|
             .col-xs-4.col-sm-3
               .shortcut
-                %a{href: '/'}
+                %a{href: courses_path(subject: subject.id)}
                   = image_tag subject.icon_url(:small), size: '110x110'
-                %a{href: '/'}
+                %a{href: courses_path(subject: subject.id)}
                   %h3= subject.name
                 %span.total-items 26
 

@@ -15,6 +15,7 @@ ru:
     w_courses_providers: "Образовательные платформы"
 
   labels:
+    lucky: "Мне повезет..."
     user_remember_me: Запомнить меня
     password: Пароль
     password_confirmation: Подтверждение пароля
@@ -31,9 +32,10 @@ ru:
     courses_list: Курсы
     subjects_list: Предметы
     members_list: Пользователи
-    providers_list: Платформы
+    providers_list: Площадки
     all_subjects: Все предметы
-    best_providers: Лучшие платформы
+    all_providers: Все площадки
+    best_providers: Лучшие площадки
     add_course: Добавить курс
     add_provider: Добавить площадку
     choose_file: Выберите файл
@@ -52,7 +54,9 @@ ru:
       site: Сайт
       description: Описание
       language: Язык(Рус/Анг)
+      lang: Язык
       duration: Продолжительность
+      durat: Продолжит.
       start_date: Начало
       end_date: Конец
       certificate: Сертификат
@@ -87,10 +91,7 @@ ru:
       zero: Нет курсов
       other: "%{count} курсов"
       many: "%{count} курсов"
-
-  time:
-    formats:
-      default: "%d/%m/%Y"
-      short: "%b %d"
-      long: "%d/%m/%Y"
+    go_to: "Открыть"
+    results: "Результатов :"
+    keyword: "Ключевое слово :"
 

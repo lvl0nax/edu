@@ -1,0 +1,27 @@
+.course_item{style: 'margin-bottom: 0px; zoom: 1; opacity: 1;'}
+  .box-ads
+    %a.image{href: '#'}
+      %span.cover
+      %img{alt: 'Sample images', src: course.provider.icon_url(:medium), style: 'width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;'}
+      %h3.title= course.name
+    %span.price
+      %i.fa{ class: "fa-#{course.provider.currency.downcase}" }
+      = number_to_currency(course.provider.average_price, unit: '')
+    %span.address
+      %i.fa.fa-link
+      =link_to course.site, course.site
+    %span.description= truncate(course.description, length: 30)
+    %dl.detail
+      %dt.status
+        %i.fa.fa-language
+        = t('labels.course.lang')
+      %dd
+        %span= course.language
+      %dt.area
+        %i.fa.fa-clock-o
+        = t('labels.course.durat')
+      %dd
+        %span= course.duration
+    .footer
+      %a.btn.btn-default{href: '#'}= t('labels.go_to')
+
