@@ -64,7 +64,7 @@
                   .input-group
                     %span.input-group-addon.addon-login
                       %i.addon.fa.fa-lock
-                    %input.form-control.input-login{placeholder: "#{t('labels.password')}(#{t('devise.min_length_hint', count: @minimum_password_length)})", required: 'required', type: 'password', name: 'user[password]'}
+                    %input.form-control.input-login{placeholder: "#{t('labels.password')}(#{t('devise.min_length_hint', count: 8)})", required: 'required', type: 'password', name: 'user[password]'}
                 .form-group
                   .input-group
                     %span.input-group-addon.addon-login
