@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.0'
 # Use Unicorn as the app server
 gem 'unicorn'
 
-gem 'capistrano', '2.15.5'
+gem 'capistrano', '~> 3.4'
 
 gem 'pry'
 
