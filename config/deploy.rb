@@ -58,7 +58,8 @@ namespace :deploy do
   desc 'Start application'
   task :start do
     on roles(:app) do
-      execute unicorn_start_cmd
+      execute "(cd #{fetch(:deploy_to)}/current; rvm use #{fetch(:rvm_ruby_version)} " \
+              "do bundle exec unicorn_rails -Dc #{fetch(:unicorn_conf)})"
     end
   end
 

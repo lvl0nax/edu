@@ -29,9 +29,10 @@ class IconUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :small, if: :subject? do
+  version :medium, if: :subject? do
     process resize_to_fit: [110, 110]
   end
+
   version :small, if: :subject? do
     process resize_to_fit: [50, 50]
   end
