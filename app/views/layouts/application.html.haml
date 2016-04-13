@@ -36,6 +36,8 @@
                         %a.btn.btn-ads{href: new_provider_path}= I18n.t('labels.add_provider')
               %li
                 %a{href: courses_path}= I18n.t('labels.courses_list')
+              %li
+                %a{href: providers_path}= I18n.t('labels.providers_list')
               - unless current_user
                 %li
                   %a{href: new_user_registration_path}= I18n.t('labels.signup')

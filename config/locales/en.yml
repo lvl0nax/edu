@@ -49,7 +49,7 @@ en:
       average_price: Average price
     course:
       name: Name
-      site: URL
+      site: Course URL
       description: Description
       language: Language(Rus/Eng)
       lang: Language

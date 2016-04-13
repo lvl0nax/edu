@@ -51,7 +51,7 @@ ru:
       average_price: Средняя цена
     course:
       name: Нзвание
-      site: Сайт
+      site: Ссылка на курс
       description: Описание
       language: Язык(Рус/Анг)
       lang: Язык
