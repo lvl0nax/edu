@@ -63,11 +63,11 @@ en:
       provider_id: Provider
     about_page:
       link: link
-      start: "In today's fast-moving world we should study every day. But number free online courses growing very fast."
+      start: "In today's fast-moving world we should study every day. But number free online courses is growing very fast."
       goal: 'Coursetheca was created to help people make a choice for the best online course.'
       help: 'But we start this project few days ago. And we would be greatfull if you help us append some online
-             courses to our catalog. You just need to sing up by this %{link}. After this you will see links to forms for
-             creating online courses.'
+             courses to our catalog. You just need to sing up by this %{link}. After this you will see links to forms
+             for creating online courses.'
       sign: 'With Best Regards. coursetheca.com'
     contacts_page:
       name: Name
