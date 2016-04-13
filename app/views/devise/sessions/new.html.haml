@@ -1,6 +1,6 @@
 
 .page_wrapper.sign_in_form.widget
-  %h2= t("devise.log_in")
+  %h2= t('devise.log_in')
   %br
   = simple_form_for(:user, url: session_path(:user)) do |f|
     .form-group
@@ -21,5 +21,5 @@
     %input.btn.btn-custom.btn-block{type: 'submit', value: I18n.t('labels.sign_in')}
   %br
 
-  = render "devise/shared/links"
+  = render 'devise/shared/links'
 

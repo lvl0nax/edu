@@ -1,5 +1,5 @@
 .page_wrapper.sign_up_form.widget
-  %h2= t("devise.sign_up")
+  %h2= t('devise.sign_up')
   %br
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = f.error_notification
@@ -20,5 +20,5 @@
         %input.form-control.input-login{placeholder: I18n.t('labels.password_confirmation'), required: 'required', type: 'password', name: 'user[password_confirmation]'}
     %input.btn.btn-custom.btn-block{type: 'submit', value: I18n.t('labels.signup')}
   %br
-  = render "devise/shared/links"
+  = render 'devise/shared/links'
 
