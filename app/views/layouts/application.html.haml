@@ -5,6 +5,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    %link{href: 'favicon.png', rel: 'icon', type: 'image/png'}
   %body
     .wrapper
       %header.navbar.navbar-default.navbar-fixed-top.navbar-top
@@ -16,9 +17,11 @@
               %span.icon-bar
               %span.icon-bar
             %a.navbar-brand{href: '/'}
-              %span.logo
+              %span.logo.logo_big
                 %i.fa.fa-graduation-cap
                 Coursetheca
+              %span.logo.logo_small
+                = image_tag image_url('logo.jpg')
           .navbar-collapse.collapse
             %ul.nav.navbar-nav.navbar-right
               - if current_user

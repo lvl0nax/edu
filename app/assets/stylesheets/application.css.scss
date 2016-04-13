@@ -301,7 +301,7 @@ a:hover{
   margin-bottom: 20px;
   text-align: center;
   border: 1px solid #DDD;
-  padding: 20px;
+  padding: 5%;
   border-radius: 5px;
 }
 
@@ -846,8 +846,6 @@ header{
   }
 }
 
-
-
 /*============Footer=================*/
 .footer {
   background: #fff;
@@ -923,5 +921,35 @@ header{
 .new_provider{
   label.control-label{
     font-size: 15px;
+  }
+}
+@media (min-width: 1000px) {
+  .logo_small{
+    display: none;
+  }
+  .logo_big{
+    display: block;
+  }
+}
+@media (max-width: 1000px) {
+  .logo_small{
+    display: block;
+    img{
+      max-width: 25px;
+    }
+  }
+  .logo_big{
+    display: none;
+  }
+  .widget-header{
+    h2{
+      font-size: 20px;
+    }
+  }
+  .shortcut{
+    h3{
+      font-size: 14px;
+      word-wrap: break-word;
+    }
   }
 }
