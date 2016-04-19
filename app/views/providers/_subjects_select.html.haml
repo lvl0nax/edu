@@ -1,0 +1,18 @@
+%fieldset{ style: 'padding: 5px 16px;' }
+  %p
+    %label{for: 'subjects'}= t('labels.subjects_list')
+    %select{id: 'subjects', multiple: 'true', name: 'provider[subjects][]'}
+      - Subject.all.each do |subject|
+        %option{value: subject.id}= subject.name
+
+:javascript
+  $(document).ready(function() {
+    $('#subjects').megaselectlist({
+      multiple: true,
+      animate: true,
+      animateevent: 'click',
+      maximumitems: 30,
+      hideloading: true,
+      warningmessage: 'Максимальное количество выбранных пунктов: {0}'
+    });
+  });

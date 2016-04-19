@@ -19,4 +19,5 @@
 //= require twitter/bootstrap/button
 //= require twitter/bootstrap/dropdown
 //= require turbolinks
+//= require megaselect
 //= require_self

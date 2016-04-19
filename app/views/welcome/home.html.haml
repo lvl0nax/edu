@@ -79,7 +79,7 @@
             %ul.trends
               - @all_providers.each do |provider|
                 %li
-                  = link_to provider_path(provider) do
+                  = link_to courses_path(providers: provider.id) do
                     = provider.name
                     %span.badge= provider.courses_count
         .banner-widget

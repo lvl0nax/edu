@@ -9,4 +9,6 @@
         %li
           %a{href: new_provider_path}= I18n.t('labels.add_provider')
         %li
-          %a{href: root_path}= t('labels.to_profile')
+          %a{href: '#'}= t('labels.to_profile')
+        %li
+          %a{href: destroy_user_session_path, method: :delete}= t('labels.sign_out')
