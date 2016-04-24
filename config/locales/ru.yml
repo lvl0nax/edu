@@ -13,8 +13,15 @@ ru:
     main_page_h1: 'Найдите лучшие онлайн курсы'
     search_p: "Пожалуйста, выберите интересующие вас направления."
     w_courses_providers: "Образовательные платформы"
+    provider: Площадка
+    similar_courses: "Похожие курсы"
+    other_from_provider: "Другие курсы на %{provider}"
+    other_providers: "Другие провайдеры"
+    online_courses_on: "Онлайн курсы на %{provider}"
 
   labels:
+    yes: Да
+    no: Нет
     lucky: "Мне повезет..."
     user_remember_me: Запомнить меня
     password: Пароль
@@ -49,6 +56,7 @@ ru:
       currency: Валюта
       free_content: Бесплатный контент?
       average_price: Средняя цена
+      courses_count: Количество курсов
     course:
       name: Нзвание
       site: Ссылка на курс
@@ -63,6 +71,7 @@ ru:
       price: Цена
       subject_id: Предмет
       provider_id: Платформа
+      direction_id: "Специализация"
     about_page:
       link: ссылке
       start: 'В этом быстро развивающемся мире, каждый кто хочет идти в ногу со временем, должен постоянно развиваться и
@@ -94,4 +103,32 @@ ru:
     go_to: "Открыть"
     results: "Результатов :"
     keyword: "Ключевое слово :"
+    my_profile: "Мой профиль"
+    edit_profile: "Редактировать профиль"
 
+  activerecord:
+    attributes:
+      provider:
+        name: Нзвание
+        site: Сайт
+        description: Описание
+        icon: Иконка
+        currency: Валюта
+        free_content: Бесплатный контент?
+        average_price: Средняя цена
+      course:
+        name: Нзвание
+        site: Ссылка на курс
+        description: Описание
+        language: Язык
+        duration: Продолжительность
+        start_date: Начало
+        end_date: Конец
+        certificate: Сертификат
+        price: Цена
+        subject_id: Предмет
+        provider_id: Платформа
+        direction_id: Специализация
+  devise:
+    edit_profile: "Редактирование профиля"
+    need_current_password: "Пожалуйста, введите текущий пароль для подтверждения изменений"

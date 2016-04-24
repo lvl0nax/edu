@@ -14,6 +14,7 @@
 #  seo_title_en       :string
 #  seo_keywords_en    :string
 #  seo_description_en :string
+#  courses_count      :integer          default(0)
 #
 
 class Subject < ActiveRecord::Base
@@ -24,8 +25,10 @@ class Subject < ActiveRecord::Base
 
   has_many :courses
   has_many :directions
-  has_many :subjects_providers
-  has_many :providers, through: :subjects_providers
+
+  def providers
+    raise NoMethodError, 'should be implemented'
+  end
 
   validates_presence_of :name_ru, :name_en
 end

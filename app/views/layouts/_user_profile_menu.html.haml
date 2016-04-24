@@ -11,4 +11,6 @@
         %li
           %a{href: '#'}= t('labels.to_profile')
         %li
+          %a{href: edit_user_registration_path}= t('labels.edit_profile')
+        %li
           %a{href: destroy_user_session_path, method: :delete}= t('labels.sign_out')

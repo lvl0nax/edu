@@ -15,9 +15,9 @@
           %li.item-date
             %i.fa.fa-book
             = t('labels.courses', count: provider.courses.size)
-          %li.item-cat
-            %i.fa.fa-bars
-            = provider.subjects.first(2).join(', ')
+          -#%li.item-cat
+          -#  %i.fa.fa-bars
+          -#  = provider.subjects.first(2).join(', ')
           %li.item-location
             %a{href: provider.site}
               %i.fa.fa-external-link

@@ -1,3 +1,9 @@
+- if notice.present?
+  .alert.alert-success{role: 'alert'}= notice
+- if alert.present?
+  .alert.alert-danger{role: 'alert'}= alert.join('. ')
+
+
 %section.main
 
   -#.account-header
@@ -27,9 +33,8 @@
         .panel.panel-default
           .panel-heading
             %h4.panel-title= t('labels.add_course')
-          -#%form.new_provider.form-horizontal{'accept-charset' => 'utf-8', enctype: 'multipart/form-data', action: providers_path, method: 'post'}
+
           = simple_form_for(@course, url: courses_path, html: {class: 'form-horizontal', multipart: true}) do |f|
-            =f.error_notification
             .panel-body
               .form-group
                 %label.col-sm-3.control-label= t('labels.course.provider_id')
@@ -67,7 +72,7 @@
                   %input.form-control{type: 'number', name: 'course[price]',  step: '0.01'}
 
               .form-group
-                %label.col-sm-3.control-label= t('labels.course.language')
+                %label.col-sm-3.control-label= t('labels.course.lang')
                 .col-sm-3
                   =select_tag 'course[language]', options_for_select(%w(ru en), 'en'), class: 'form-control'
 
@@ -75,6 +80,11 @@
                 %label.col-sm-3.control-label= t('labels.course.subject_id')
                 .col-sm-3
                   =select_tag 'course[subject_id]', options_from_collection_for_select(Subject.all, 'id', 'name'), class: 'form-control'
+
+              .form-group
+                %label.col-sm-3.control-label= t('labels.course.direction_id')
+                .col-sm-3
+                  =select_tag 'course[direction_id]', options_from_collection_for_select(Direction.all, 'id', 'name'), class: 'form-control'
 
               .form-group
                 %label.col-sm-3.control-label{for: 'course_certificate'}

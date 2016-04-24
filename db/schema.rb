@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412165734) do
+ActiveRecord::Schema.define(version: 20160424120611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,12 +116,17 @@ ActiveRecord::Schema.define(version: 20160412165734) do
     t.boolean  "free_content"
     t.float    "average_price"
     t.integer  "user_id"
+    t.integer  "subject_ids",                                     array: true
+    t.integer  "direction_ids",                                   array: true
   end
+
+  add_index "providers", ["direction_ids"], name: "index_providers_on_direction_ids", using: :gin
+  add_index "providers", ["subject_ids"], name: "index_providers_on_subject_ids", using: :gin
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name_ru"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "seo_title_ru"
     t.string   "seo_keywords_ru"
     t.text     "seo_description_ru"
@@ -130,16 +135,8 @@ ActiveRecord::Schema.define(version: 20160412165734) do
     t.string   "seo_title_en"
     t.string   "seo_keywords_en"
     t.string   "seo_description_en"
+    t.integer  "courses_count",      default: 0
   end
-
-  create_table "subjects_providers", force: :cascade do |t|
-    t.integer  "subject_id"
-    t.integer  "provider_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "subjects_providers", ["subject_id", "provider_id"], name: "index_subjects_providers_on_subject_id_and_provider_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"

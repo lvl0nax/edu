@@ -1,0 +1,191 @@
+%section.main
+  .container
+    .row
+      .col-md-8.col-sm-8
+        .row
+          .col-md-12
+            .post
+              .post-price
+                %i.fa{ class: "fa-#{@course.provider.currency.downcase}" }
+                = number_to_currency(@course.price, unit: '')
+              .post-title
+                %h1= @course.name
+              .post-meta
+                -#%ul
+                -#  %li
+                -#    %i.fa.fa-clock-o
+                -#    2 minutes ago
+                -#  %li
+                -#    %i.fa.fa-bars
+                -#    = succeed "," do
+                -#      %a{:href => "category.html"} Electronic
+                -#    %a{:href => "category.html"} Laptop
+                -#  %li
+                -#    %i.fa.fa-map-marker
+                -#    %a{:href => "category.html"} Mountain View
+                -#  %li
+                -#    %i.fa.fa-bookmark
+                -#    Used
+
+              .post-body
+                %h4
+                  %strong= t('labels.course.description')
+
+                %dl.detail
+                  %dt.status
+                    %i.fa.fa-link
+                    = t('labels.course.site')
+                    \:
+                  %dd
+                    %a{href: @course.site, target: '_blank'}= @course.site
+
+                  %dt.status
+                    %i.fa.fa-language
+                    = t('labels.course.language')
+                    \:
+                  %dd
+                    %span= @course.language
+
+                  %dt.area
+                    %i.fa.fa-suitcase
+                    = t('labels.course.subject_id')
+                    \:
+                  %dd
+                    %span= @course.subject.name
+
+                  - if @course.direction
+                    %dt.area
+                      %i.fa.fa-tags
+                      = t('labels.course.direction_id')
+                      \:
+                    %dd
+                      %span= @course.direction.try(:name)
+
+                  %dt.area
+                    %i.fa.fa-clock-o
+                    = t('labels.course.duration')
+                    \:
+                  %dd
+                    %span= @course.duration
+
+                  - if @course.start_date
+                    %dt.area
+                      %i.fa.fa-play
+                      = t('labels.course.start_date')
+                      \:
+                    %dd
+                      %span= @course.start_date.strftime('%d-%m-%Y')
+
+                  - if @course.end_date
+                    %dt.area
+                      %i.fa.fa-stop
+                      = t('labels.course.end_date')
+                      \:
+                    %dd
+                      %span= @course.end_date.strftime('%d-%m-%Y')
+
+                %p= @course.description
+              .post-footer
+                .row
+                  .col-xs-6
+                    -#%button.btn.btn-info
+                    -#  %i.fa.fa-whatsapp
+                    -#  %span.hidden-xs.hidden-sm 0823 4223 4234
+                    -#%button.btn.btn-warning{"data-target" => "#sendMessageModal", "data-toggle" => "modal"}
+                    -#  %i.fa.fa-envelope
+                    -#  %span.hidden-xs.hidden-sm Send Message
+                  .col-xs-6
+                    -#.item-action.pull-right
+                    -#  %ul
+                    -#    %li
+                    -#      %a.btn.btn-success.btn{"data-original-title" => "Save Favorite", "data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => ""}
+                    -#        %i.fa.fa-heart
+                    -#    %li
+                    -#      %a.btn.btn-info.btn{"data-original-title" => "Show Details", "data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => ""}
+                    -#        %i.fa.fa-share-alt
+        .row
+          .col-md-12
+            .section-header
+              %h2= t('titles.other_from_provider', provider: @course.provider.name)
+            .row
+              - @other_courses.each do |course|
+                .col-md-4
+                  = render 'course_item', course: course
+
+      .col-md-4.col-sm-4
+        .widget
+          .widget-header
+            %h3= t('titles.provider')
+          .widget-body.text-center
+            %a{href: provider_path(@course.provider_id)}
+              %img.seller-avatar.img-responsive{alt: @course.provider.name, src: @course.provider.icon_url(:medium)}
+              %h2.seller-name= @course.provider.name
+            %p.seller-detail
+              URL:
+              = link_to @course.provider.site, @course.provider.site, target: '_blank'
+              -#%br
+              -#Joined :
+              -#%strong 21 June 2010
+          -#.widget-footer
+          -#  .row
+          -#    .col-sm-6
+          -#      %button.btn.btn-info.btn-block
+          -#        %i.fa.fa-whatsapp
+          -#        0823 4223 4234
+          -#    .col-sm-6
+          -#      %button.btn.btn-warning.btn-block{"data-target" => "#sendMessageModal", "data-toggle" => "modal"}
+          -#        %i.fa.fa-envelope
+          -#        Send Message
+        .widget
+          .widget-header
+            %h3= t('titles.similar_courses')
+          .widget-body
+            %ul.trends
+              - @similar_courses.each do |course|
+                %li
+                  %a{href: course_path(course)}
+                    = course.name
+                    -#%span.item-numbers (2,342)
+              %li
+                %a{:href => "#"}
+                  Watch & Jewelry  
+                  %span.item-numbers (2,342)
+              %li
+                %a{:href => "#"}
+                  Clothes  
+                  %span.item-numbers (2,342)
+
+
+        -#.widget
+        -#  .widget-header
+        -#    %h3 Browse by Brand
+        -#  .widget-body
+        -#    %ul.brands
+        -#      %li
+        -#        %label
+        -#          %input{:type => "checkbox"}/
+        -#          Apple
+        -#      %li
+        -#        %label
+        -#          %input{:type => "checkbox"}/
+        -#          Asus
+        -#      %li
+        -#        %label
+        -#          %input{:type => "checkbox"}/
+        -#          Acer
+        -#      %li
+        -#        %label
+        -#          %input{:type => "checkbox"}/
+        -#          Nexus
+        -#      %li
+        -#        %label
+        -#          %input{:type => "checkbox"}/
+        -#          Nokia
+        -#      %li
+        -#        %label
+        -#          %input{:type => "checkbox"}/
+        -#          Lenovo
+        -#      %li
+        -#        %label
+        -#          %input{:type => "checkbox"}/
+        -#          Samsung

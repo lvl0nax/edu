@@ -3,11 +3,12 @@ class ProvidersController < ApplicationController
 
   def index
     @all_providers = Provider.moderated
-    @all_subjects = Subject.includes(:subjects_providers).all
+    @all_subjects = Subject.all
   end
 
   def show
-
+    @provider = Provider.find(params[:id])
+    @other_providers = Provider.where.not(id: @provider.id)
   end
 
   def create

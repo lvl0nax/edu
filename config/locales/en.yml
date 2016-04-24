@@ -11,8 +11,15 @@ en:
     main_page_h1: "Find the world's best courses, online"
     search_p: "Please select your area of interest."
     w_courses_providers: "Course providers"
+    provider: Provider
+    similar_courses: "Similar courses"
+    other_from_provider: "Other courses on the %{provider}"
+    other_providers: "Other providers"
+    online_courses_on: "Online courses on the %{provider}"
 
   labels:
+    yes: Yes
+    no: No
     lucky: "I'm feeling lucky..."
     user_remember_me: Remember me
     password: Password
@@ -47,6 +54,7 @@ en:
       currency: Currency
       free_content: Free content?
       average_price: Average price
+      courses_count: Number of courses
     course:
       name: Name
       site: Course URL
@@ -61,6 +69,7 @@ en:
       price: Price
       subject_id: Subject
       provider_id: Provider
+      direction_id: "Specialization"
     about_page:
       link: link
       start: "In today's fast-moving world we should study every day. But number free online courses is growing very fast."
@@ -86,3 +95,32 @@ en:
     go_to: "Open"
     results: "Results :"
     keyword: "Keyword :"
+    my_profile: "Profile"
+    edit_profile: "Edit profile"
+
+  activerecord:
+    attributes:
+      provider:
+        name: Name
+        site: URL
+        description: Description
+        icon: Icon
+        currency: Currency
+        free_content: Free content?
+        average_price: Average price
+      course:
+        name: Name
+        site: Course URL
+        description: Description
+        language: Language(Rus/Eng)
+        duration: Duration
+        start_date: Start Date
+        end_date: End Date
+        certificate: Certificate
+        price: Price
+        subject_id: Subject
+        provider_id: Provider
+        direction_id: Specialization
+  devise:
+    edit_profile: "Edit profile"
+    need_current_password: "we need your current password to confirm your changes"

@@ -12,7 +12,9 @@ class CoursesController < ApplicationController
   end
 
   def show
-
+    @course = Course.includes(:provider).find(params[:id])
+    @similar_courses = Course.where(direction_id: @course.direction_id).where.not(id: @course.id).limit(20)
+    @other_courses = @course.provider.courses.limit(6)
   end
 
   def create
@@ -22,6 +24,7 @@ class CoursesController < ApplicationController
     if @course.save
       redirect_to :root, notice: t('notifications.success_course')
     else
+      flash[:alert] = @course.errors.full_messages
       render :new
     end
   end

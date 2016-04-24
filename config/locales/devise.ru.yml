@@ -2,6 +2,7 @@
 
 ru:
   devise:
+    leave_blank: "Оставьте пустым если не хотите менять"
     forgot_password: "Забыли пароль?"
     log_in: "Войти"
     sign_up: "Регистрация"

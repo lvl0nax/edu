@@ -124,3 +124,25 @@
   -o-border-radius: 3px;
   border-radius: 3px;
 }
+
+.post-body{
+  .detail {
+    min-height: 120px;
+    list-style: outside none none;
+    margin: 10px 6px;
+    padding: 0;
+
+    dt, dd {
+      border-bottom: 1px solid #f7f7f7;
+      height: 35px;
+      padding: 5px 6px 3px;
+      font-size: 14px;
+    }
+    dd {
+      padding-left: 5px;
+    }
+    dt {
+      float: left;
+    }
+  }
+}

@@ -1,15 +1,15 @@
 .course_item{style: 'margin-bottom: 0px; zoom: 1; opacity: 1;'}
   .box-ads
-    %a.image{href: '#'}
+    %a.image{href: course_path(course.id)}
       %span.cover
       %img{alt: 'Sample images', src: course.provider.icon_url(:medium), style: 'width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;'}
       %h3.title= course.name
     %span.price
       %i.fa{ class: "fa-#{course.provider.currency.downcase}" }
-      = number_to_currency(course.provider.average_price, unit: '')
+      = number_to_currency(course.price, unit: '')
     %span.address
       %i.fa.fa-link
-      =link_to course.site, course.site
+      =link_to course.site, course.site, target: '_blank'
     %span.description= truncate(course.description, length: 30)
     %dl.detail
       %dt.status
@@ -23,5 +23,5 @@
       %dd
         %span= course.duration
     .footer
-      %a.btn.btn-default{href: '#'}= t('labels.go_to')
+      %a.btn.btn-default{href: course_path(course.id)}= t('labels.go_to')
 

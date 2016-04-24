@@ -1,3 +1,8 @@
+- if notice.present?
+  .alert.alert-success{role: 'alert'}= notice
+- if alert.present?
+  .alert.alert-danger{role: 'alert'}= alert.join('. ')
+
 %section.main
 
   -#.account-header
@@ -29,7 +34,6 @@
             %h4.panel-title= t('labels.add_provider')
           -#%form.new_provider.form-horizontal{'accept-charset' => 'utf-8', enctype: 'multipart/form-data', action: providers_path, method: 'post'}
           = simple_form_for(@provider, url: providers_path, html: {class: 'form-horizontal', multipart: true}) do |f|
-            =f.error_notification
             .panel-body
               .form-group
                 %label.col-sm-3.control-label= t('labels.provider.name')
@@ -73,9 +77,6 @@
                         %span.fa.fa-folder-open
                         = t('labels.choose_file')
                   %span.help-block
-
-              .form-group
-                = render 'providers/subjects_select'
 
             .panel-footer
               .row

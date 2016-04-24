@@ -1,0 +1,39 @@
+%section.container.devise_wrapper
+  .edit_registration.widget
+    %h2= t('devise.edit_profile')
+    %br
+
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = f.error_notification
+      .form-inputs
+        .form-group
+          .input-group
+            %span.input-group-addon.addon-login
+              %i.fa.fa-user
+            %input.form-control.input-login{placeholder:  I18n.t('labels.email'), required: 'required', type: 'text', name: 'user[email]', autofocus: true}
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %p
+            Currently waiting confirmation for: #{resource.unconfirmed_email}
+        .form-group
+          .input-group
+            %span.input-group-addon.addon-login
+              %i.addon.fa.fa-lock
+            %input.form-control.input-login{placeholder: "#{t('labels.password')}(#{t('devise.min_length_hint', count: 8)})", required: 'required', type: 'password', name: 'user[password]'}
+          %p.help-block= t('devise.leave_blank')
+        .form-group
+          .input-group
+            %span.input-group-addon.addon-login
+              %i.addon.fa.fa-lock
+            %input.form-control.input-login{placeholder: I18n.t('labels.password_confirmation'), required: 'required', type: 'password', name: 'user[password_confirmation]'}
+        .form-group
+          .input-group
+            %span.input-group-addon.addon-login
+              %i.addon.fa.fa-lock
+            %input.form-control.input-login{placeholder: t('devise.need_current_password'), required: 'required', type: 'password', name: 'user[current_password]'}
+      .form-actions
+        .panel-footer
+          .row
+            .col-sm-offset-3.col-sm-9
+              %button.btn.btn-custom{type: 'submit'}
+                %i.fa.fa-save
+                = t('labels.save')

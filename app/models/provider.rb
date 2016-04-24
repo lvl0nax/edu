@@ -23,6 +23,13 @@
 #  free_content       :boolean
 #  average_price      :float
 #  user_id            :integer
+#  subject_ids        :integer          is an Array
+#  direction_ids      :integer          is an Array
+#
+# Indexes
+#
+#  index_providers_on_direction_ids  (direction_ids)
+#  index_providers_on_subject_ids    (subject_ids)
 #
 
 class Provider < ActiveRecord::Base
@@ -35,8 +42,6 @@ class Provider < ActiveRecord::Base
 
   belongs_to :user
   has_many :courses
-  has_many :subjects_providers
-  has_many :subjects, through: :subjects_providers
 
   validates_presence_of :site
   # validates_uniqueness_of :site

@@ -1,1 +1,38 @@
-= t('titles.page_coming_soon')
+- if notice.present?
+  .alert.alert-success{role: 'alert'}= notice
+- if alert.present?
+  .alert.alert-danger{role: 'alert'}= alert.join('. ')
+
+
+%section.main
+
+  -#.account-header
+  -#  .container
+  -#    .row
+  -#      .col-sm-4.col-md-3.col-lg-2
+  -#        / User avatar
+  -#        .profile_avatar
+  -#          %img.img-responsive{:alt => "avatar", :src => "assets/img/people/gie.jpg"}/
+  -#      .col-sm-8.col-md-9.col-lg-10
+  -#        .profile_summary
+  -#          / User name
+  -#          %h3.profile_name John Doe
+  -#          / User status
+  -#          %p Hello.. I'am a frontend developer.
+  -#          / Contact
+  -#          %a.btn.btn-primary.btn-warning.btn-sm{:href => "index.html"}
+  -#            %i.fa.fa-sign-out
+  -#            Sign Out
+  / / .profile__summary
+  / / .row
+  / / .container
+  .container
+    .row
+      = render 'layouts/user_profile_menu'
+      .col-md-9.col-sm-9
+        .panel.panel-default
+          .panel-heading
+            %h4.panel-title= t('labels.my_profile')
+
+          .panel-body
+

@@ -36,7 +36,7 @@ class Course < ActiveRecord::Base
 
   belongs_to :provider, counter_cache: true
   belongs_to :user
-  belongs_to :subject
+  belongs_to :subject, counter_cache: true
   belongs_to :direction
 
   enum language: [:ru, :en]

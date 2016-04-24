@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
 
   def home
     @all_subjects = Subject.includes(:courses).all
-    @all_providers = Provider.moderated.includes(subjects_providers: :subjects).all
+    @all_providers = Provider.moderated.all
   end
 
   def about; end

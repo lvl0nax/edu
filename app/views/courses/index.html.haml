@@ -9,7 +9,7 @@
             %ul.trends
               - @all_subjects.each do |subject|
                 %li
-                  = link_to providers_path(subject: subject.id) do
+                  = link_to courses_path(subject: subject.id) do
                     = subject.name
                     %span.item-numbers= subject.courses.size
       .col-md-9.col-sm-9

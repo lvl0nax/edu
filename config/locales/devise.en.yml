@@ -2,6 +2,7 @@
 
 en:
   devise:
+    leave_blank: "leave it blank if you don't want to change it"
     forgot_password: "Forgot your password?"
     sign_up: "Sign up"
     log_in: "Log in"
