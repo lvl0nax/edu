@@ -16,7 +16,7 @@
 #  seo_keywords_en    :string
 #  seo_description_en :string
 #  name_en            :string
-#  description_en     :string
+#  description_en     :text
 #  courses_count      :integer          default(0)
 #  icon               :string
 #  currency           :integer

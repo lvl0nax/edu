@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160424120611) do
+ActiveRecord::Schema.define(version: 20160517094459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20160424120611) do
     t.string   "seo_keywords_en"
     t.string   "seo_description_en"
     t.string   "name_en"
-    t.string   "description_en"
+    t.text     "description_en"
     t.integer  "courses_count",      default: 0
     t.string   "icon"
     t.integer  "currency"
