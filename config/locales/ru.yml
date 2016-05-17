@@ -20,8 +20,8 @@ ru:
     online_courses_on: "Онлайн курсы на %{provider}"
 
   labels:
-    yes: Да
-    no: Нет
+    yes_val: 'Да'
+    no_val: 'Нет'
     lucky: "Мне повезет..."
     user_remember_me: Запомнить меня
     password: Пароль

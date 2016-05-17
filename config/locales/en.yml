@@ -18,8 +18,8 @@ en:
     online_courses_on: "Online courses on the %{provider}"
 
   labels:
-    yes: Yes
-    no: No
+    yes_val: 'Yes'
+    no_val: 'No'
     lucky: "I'm feeling lucky..."
     user_remember_me: Remember me
     password: Password

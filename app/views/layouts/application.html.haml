@@ -92,11 +92,11 @@
 
               - if I18n.locale == :en
                 %li
-                  %a{href: root_path(locale: :ru)}
+                  %a{href: url_for(locale: :ru)}
                     ru
               - else
                 %li
-                  %a{href: root_path(locale: :en)}
+                  %a{href: url_for(locale: :en)}
                     en
 
       = yield
