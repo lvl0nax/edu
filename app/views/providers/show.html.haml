@@ -25,7 +25,7 @@
                     = t('labels.provider.average_price')
                     \:
                   %dd
-                    %span= @provider.average_price
+                    %span= @provider.average_price.to_i
                     %i.fa{ class: "fa-#{@provider.currency.downcase}" }
 
                   %dt.area
