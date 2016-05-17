@@ -38,7 +38,7 @@ class Provider < ActiveRecord::Base
 
   enum currency: [:RUB, :USD]
 
-  mount_uploader :icon, IconUploader
+  mount_uploader :icon, ProviderIconUploader
 
   belongs_to :user
   has_many :courses

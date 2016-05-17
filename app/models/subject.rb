@@ -21,7 +21,7 @@ class Subject < ActiveRecord::Base
   include Translatable
   translatable_fields :name, :seo_title, :seo_keywords, :seo_description
 
-  mount_uploader :icon, IconUploader
+  mount_uploader :icon, SubjectIconUploader
 
   has_many :courses
   has_many :directions

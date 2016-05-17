@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class IconUploader < CarrierWave::Uploader::Base
+class ProviderIconUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -18,27 +18,16 @@ class IconUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    '/assets/default.png'
+    '/default.png'
   end
 
   # Create different versions of your uploaded files:
-  version :medium, if: :subject? do
-    process resize_to_fit: [110, 110]
-  end
 
-  version :small, if: :subject? do
-    process resize_to_fit: [50, 50]
-  end
-
-  version :thumb, if: :subject? do
+  version :small do
     process resize_to_fit: [20, 20]
   end
 
-  version :small, if: :provider? do
-    process resize_to_fit: [20, 20]
-  end
-
-  version :medium, if: :provider? do
+  version :medium do
     process resize_to_fit: [228, 150]
   end
 
@@ -46,15 +35,5 @@ class IconUploader < CarrierWave::Uploader::Base
   # For images you might use something like this:
   def extension_white_list
     %w(jpg jpeg gif png)
-  end
-
-  private
-
-  def subject?(_picture)
-    model.is_a? Subject
-  end
-
-  def provider?(_picture)
-    model.is_a? Provider
   end
 end
