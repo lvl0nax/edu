@@ -93,7 +93,7 @@ ru:
       sending_message: Отправить сообщение
       hint: Если у вас есть какие-то вопросы, вы можете задать их через эту форму
     providers:
-      has_free_content: Есть бесплатный контент
+      has_free_content: Есть беспл. контент
     courses:
       one: 1 курс
       few: "%{count} курса"
