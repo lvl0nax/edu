@@ -963,3 +963,14 @@ header{
     }
   }
 }
+#featured-products {
+  text-align: justify;
+  .provider-item{
+    width: 32%;
+    min-width: 240px;
+  }
+}
+.providers__list {
+  text-align: justify;
+  text-align-last: center;
+}

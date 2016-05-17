@@ -13,7 +13,7 @@
       -#              = subject.name
       -#              %span.item-numbers= subject.courses.size
       .col-md-12.col-sm-12
-        .list-results
+        .list-results.providers__list
           .row
             - @all_providers.each do |provider|
               = render 'welcome/provider_preview', provider: provider
